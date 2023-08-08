@@ -1,9 +1,9 @@
 {
-    "name": "martfury_react",
+    "name": "RepuestosGO",
     "version": "2.2.1",
     "private": true,
     "author": "nouthemes",
-    "homepage": "https://themeforest.net/user/nouthemes",
+    "homepage": "www.repuestosgo.com",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
