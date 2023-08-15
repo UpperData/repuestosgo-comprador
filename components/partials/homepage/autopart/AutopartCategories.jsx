@@ -6,49 +6,48 @@ const AutopartCategories = () => {
         {
             thumbnail: '/static/img/categories/home-2/1.jpg',
             title: 'INTERIOR',
-            links: ['Seats', 'Steering Wheels', 'Dash Cover', 'Floor Mats'],
+            links: ['Asientos', 'Tablero', 'Radios', 'Alfombras de piso'],
         },
         {
             thumbnail: '/static/img/categories/home-2/2.jpg',
             title: 'EXTERIOR',
             links: [
-                'Running Boards',
-                'Custom Grilles',
-                'Off-Road Bumpers',
-                'Body Kits',
+                'Rejillas personalizadas',
+                'Parachoques todoterreno',
+                'Kits de carrocería',
             ],
         },
         {
             thumbnail: '/static/img/categories/home-2/3.jpg',
-            title: 'WHEELS & TIRES',
-            links: ['Custom Wheels', 'Tires', 'Factory Wheels', 'Center Caps'],
+            title: 'RUEDAS Y NEUMÁTICOS',
+            links: ['Ruedas personalizadas', 'Llantas', 'Ruedas de fábrica', 'Casquillos centrales'],
         },
         {
             thumbnail: '/static/img/categories/home-2/4.jpg',
             title: 'PERFORMANCE',
             links: [
-                'Exhausted System',
-                'Brakes',
-                'Performance Chips',
-                'Starting & Charging',
+                'Sistema de escape',
+                'Frenos',
+                'Fichas de rendimiento',
+                'Arranque y carga',
             ],
         },
         {
             thumbnail: '/static/img/categories/home-2/5.jpg',
-            title: 'BODY PARTS',
-            links: ['Mirrors', 'Hoods', 'Bumpers', 'Quater Panels'],
+            title: 'Partes',
+            links: ['Espejos', 'parachoques', 'Paneles'],
         },
         {
             thumbnail: '/static/img/categories/home-2/6.jpg',
-            title: 'LIGHTING',
-            links: ['Headlight', 'Off-Road Light', 'WSingnal Light'],
+            title: 'Luces',
+            links: ['Faros', 'Luz todoterreno', 'Luz de señal'],
         },
     ];
     return (
         <section className="ps-top-categories">
             <div className="container">
                 <div className="ps-section__header">
-                    <h3>TOP CATEGORIES OF THE MONTH</h3>
+                    <h3>Categorias más populares</h3>
                 </div>
                 <div className="ps-section__content"></div>
                 <div className="row align-content-lg-stretch">
@@ -79,7 +78,7 @@ const AutopartCategories = () => {
                                         <li className="more">
                                             <Link href="/shop">
                                                 <a>
-                                                    More
+                                                    Ver más
                                                     <i className="icon-chevron-right"></i>
                                                 </a>
                                             </Link>

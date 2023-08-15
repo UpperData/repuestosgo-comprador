@@ -67,7 +67,9 @@ class ClientSay extends Component {
             <div className="ps-client-say">
                 <div className="container">
                     <div className="ps-section__header">
-                        <h3>What client say</h3>
+                        <h3>
+                            Opiniones de clientes
+                        </h3>
                         <div className="ps-section__nav">
                             <a
                                 className="ps-carousel__prev"

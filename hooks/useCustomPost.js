@@ -58,7 +58,11 @@ export default function useCustomPost() {
             }
             if (post.categories && post.categories.length > 0) {
                 categoriesView = post.categories.map((item) => (
-                    <Link href="/category/[slug]" as={`/categories/${item.slug}`} key={item.id}>
+                    <Link 
+                        href="/category/[slug]" 
+                        as={`/categories/${item.slug}`} 
+                        key={item.id}
+                    >
                         <a>{item.name}</a>
                     </Link>
                 ));

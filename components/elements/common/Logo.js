@@ -6,7 +6,7 @@ const Logo = ({ type }) => {
     if (type === 'autopart') {
         data = {
             url: '/home/autopart',
-            img: 'img/logo-autopart.png',
+            img: '/static/img/logo/logo.png',
         };
     }
     else if (type === 'technology') {

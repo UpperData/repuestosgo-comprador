@@ -43,26 +43,21 @@ const AutopartRecommendForYou = ({ collectionSlug }) => {
         <section className="ps-product-list ps-recommend-for-you">
             <div className="container">
                 <div className="ps-section__header">
-                    <h3>RECOMMENDED FOR YOU</h3>
+                    <h3>Recomendado para tí</h3>
                     <ul className="ps-section__links">
                         <li>
                             <Link href="/shop">
-                                <a>Best Seller</a>
+                                <a>Más vendidos</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/shop">
-                                <a>New Arrival</a>
+                                <a>Publicado recientemente</a>
                             </Link>
                         </li>
                         <li>
                             <Link href="/shop">
-                                <a>Top Rated</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/shop">
-                                <a>Trending Products</a>
+                                <a>Mejor calificado</a>
                             </Link>
                         </li>
                     </ul>

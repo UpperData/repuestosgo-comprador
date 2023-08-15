@@ -42,8 +42,9 @@ class HeaderMobileAutopart extends Component {
                         <Link href="/">
                             <a className="ps-logo">
                                 <img
-                                    src="/static/img/logo-autopart.png"
+                                    src="/static/img/logo/logo-b.png"
                                     alt="martfury"
+                                    style={{ maxWidth: 200 }}
                                 />
                             </a>
                         </Link>

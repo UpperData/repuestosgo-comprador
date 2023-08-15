@@ -1,44 +1,43 @@
 import React from 'react';
-import SiteFeatures from '~/components/partials/homepage/home-default/SiteFeatures';
-import HomeAdsColumns from '~/components/partials/homepage/home-default/HomeAdsColumns';
-import HomeAds from '~/components/partials/homepage/home-default/HomeAds';
-import DownLoadApp from '~/components/partials/commons/DownLoadApp';
-import NewArrivals from '~/components/partials/homepage/home-default/NewArrivals';
-import Newletters from '~/components/partials/commons/Newletters';
-import HomeDefaultDealOfDay from '~/components/partials/homepage/home-default/HomeDefaultDealOfDay';
-import HomeDefaultTopCategories from '~/components/partials/homepage/home-default/HomeDefaultTopCategories';
-import HomeDefaultProductListing from '~/components/partials/homepage/home-default/HomeDefaultProductListing';
-import HomeDefaultBanner from '~/components/partials/homepage/home-default/HomeDefaultBanner';
+import AutopartBanner from '~/components/partials/homepage/autopart/AutopartBanner';
+import AutopartCategories from '~/components/partials/homepage/autopart/AutopartCategories';
+import AutopartPromotions from '~/components/partials/homepage/autopart/AutopartPromotions';
+import AutopartPromotions2 from '~/components/partials/homepage/autopart/AutopartPromotions2';
+import AutopartRecommendForYou from '~/components/partials/homepage/autopart/AutopartRecommendForYou';
+import ClientSay from '~/components/partials/commons/ClientSay';
+import AutopartBestSaleBrand from '~/components/partials/homepage/autopart/AutopartBestSaleBrand';
+import ProductGroupDealHot from '~/components/partials/product/ProductGroupDealHot';
 import PageContainer from '~/components/layouts/PageContainer';
+import SiteFeatures from '~/components/partials/homepage/autopart/SiteFeatures';
+import FooterSecond from '~/components/shared/footers/FooterSecond';
+import HeaderAutoPart from '~/components/shared/headers/HeaderAutoPart';
+import HeaderMobileAutopart from '~/components/shared/headers/HeaderMobileAutopart';
 
-const HomepageDefaultPage = () => {
+const HomeAutopartPage = () => {
+    const headers = (
+        <>
+            <HeaderAutoPart />
+            <HeaderMobileAutopart />
+        </>
+    );
+
     return (
-        <PageContainer title="Multipurpose Marketplace React Ecommerce Template">
-            <main id="homepage-1">
-                <HomeDefaultBanner />
+        <PageContainer
+            header={headers}
+            footer={<FooterSecond classes="autopart" />}>
+            <main id="homepage-2">
+                <AutopartBanner />
+                <AutopartCategories />
+                <AutopartPromotions />
+                <AutopartRecommendForYou collectionSlug="autopart-recommend-products" />
+                <ProductGroupDealHot collectionSlug="autopart-recommend-products" />
+                <AutopartPromotions2 />
+                <AutopartBestSaleBrand />
+                <ClientSay />
                 <SiteFeatures />
-                <HomeDefaultDealOfDay collectionSlug="deal-of-the-day" />
-                <HomeAdsColumns />
-                <HomeDefaultTopCategories />
-                <HomeDefaultProductListing
-                    collectionSlug="consumer-electronics"
-                    title="Consumer Electronics"
-                />
-                <HomeDefaultProductListing
-                    collectionSlug="clothings"
-                    title="Clothings"
-                />
-                <HomeDefaultProductListing
-                    collectionSlug="garden-and-kitchen"
-                    title="Garden & Kitchen"
-                />
-                <HomeAds />
-                <DownLoadApp />
-                <NewArrivals collectionSlug="new-arrivals-products" />
-                <Newletters />
             </main>
         </PageContainer>
     );
 };
 
-export default HomepageDefaultPage;
+export default HomeAutopartPage;

@@ -168,7 +168,7 @@ button.ps-btn {
     &:hover,
     &:active {
         background-color: #222;
-        color: #fff;
+        color: #fff !important;
 
         &.ps-btn--black {
             background-color: $color-1st;

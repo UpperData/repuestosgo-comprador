@@ -26,18 +26,17 @@ const AutopartBanner = () => {
                             alt="martfury"
                         />
                         <div className="ps-banner__content">
-                            <h4>Version 2018</h4>
                             <h3>
-                                DUNLOP TIRES <br /> FASTER
+                                Explora nuestro catálogo
                             </h3>
-                            <p>New version 2018 with many powerful features.</p>
+                            <p>Encuentra el repuesto indicado para tu vehiculo en <strong>RepuestosGo.</strong></p>
                             <p>
                                 <strong>
-                                    Faster, Friction better & Cheap Price
+                                    Tú solución inteligente, segura, rápida y al mejor precio. 
                                 </strong>
                             </p>
                             <a className="ps-btn" href="#">
-                                Shop Now
+                                Comprar ahora
                             </a>
                         </div>
                     </div>
@@ -53,15 +52,12 @@ const AutopartBanner = () => {
                             alt="martfury"
                         />
                         <div className="ps-banner__content">
-                            <h4>Version 2018</h4>
+                            <h4>Disponible y en catálogo</h4>
                             <h3>
-                                CASTROL <br /> MOTOR OILS
+                                Las mejores marcas en aceite de motores
                             </h3>
-                            <p>New version 2018 with many powerful features.</p>
                             <p>
-                                <strong>
-                                    Faster, Friction better & Cheap Price
-                                </strong>
+                                Encuentra el aceite indeal para tu vehiculo.
                             </p>
                             <a className="ps-btn" href="#">
                                 Shop Now

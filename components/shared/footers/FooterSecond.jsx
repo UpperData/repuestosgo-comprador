@@ -11,27 +11,22 @@ const FooterSecond = ({ classes }) => (
                             <div className="col-md-4 col-sm-6">
                                 <aside className="widget widget_footer">
                                     <h4 className="widget-title">
-                                        Quick links
+                                        Legal
                                     </h4>
                                     <ul className="ps-list--link">
                                         <li>
                                             <Link href="/page/blank">
-                                                <a>Policy</a>
+                                                <a>Politica de privacidad</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/page/blank">
-                                                <a>Term & Condition</a>
+                                                <a>Terminos y condiciones</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/page/blank">
-                                                <a>Shipping</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/page/blank">
-                                                <a>Return</a>
+                                                <a>Reembolsos</a>
                                             </Link>
                                         </li>
                                         <li>
@@ -44,26 +39,21 @@ const FooterSecond = ({ classes }) => (
                             </div>
                             <div className="col-md-4 col-sm-6">
                                 <aside className="widget widget_footer">
-                                    <h4 className="widget-title">Company</h4>
+                                    <h4 className="widget-title">RepuestosGo</h4>
                                     <ul className="ps-list--link">
                                         <li>
                                             <Link href="/page/about-us">
-                                                <a>About Us</a>
+                                                <a>Sobre nosotros</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/product/affiliate">
-                                                <a>Affilate</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/page/blank">
-                                                <a>Career</a>
+                                                <a>Afiliar</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/page/contact-us">
-                                                <a>Contact</a>
+                                                <a>Contacto</a>
                                             </Link>
                                         </li>
                                     </ul>
@@ -71,26 +61,16 @@ const FooterSecond = ({ classes }) => (
                             </div>
                             <div className="col-md-4 col-sm-6">
                                 <aside className="widget widget_footer">
-                                    <h4 className="widget-title">Bussiness</h4>
+                                    <h4 className="widget-title">Tienda</h4>
                                     <ul className="ps-list--link">
                                         <li>
-                                            <Link href="/blog">
-                                                <a>Our Press</a>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/account/checkout">
-                                                <a>Checkout</a>
-                                            </Link>
-                                        </li>
-                                        <li>
                                             <Link href="/account/login">
-                                                <a>My account</a>
+                                                <a>Mi cuenta</a>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link href="/shop">
-                                                <a>Shop</a>
+                                                <a>Catálogo</a>
                                             </Link>
                                         </li>
                                     </ul>
@@ -101,7 +81,9 @@ const FooterSecond = ({ classes }) => (
 
                     <div className="col-xl-4 col-md-6">
                         <aside className="widget widget_newletters">
-                            <h4 className="widget-title">Newsletter</h4>
+                            <h4 className="widget-title">
+                                Newsletter
+                            </h4>
                             <form
                                 className="ps-form--newletter"
                                 action="#"
@@ -110,10 +92,10 @@ const FooterSecond = ({ classes }) => (
                                     <input
                                         className="form-control"
                                         type="text"
-                                        placeholder="Email Address"
+                                        placeholder="Email"
                                     />
                                     <button className="ps-btn">
-                                        Subscribe
+                                        Subscribir
                                     </button>
                                 </div>
                                 <ul className="ps-list--social">
@@ -144,9 +126,9 @@ const FooterSecond = ({ classes }) => (
                 </div>
             </div>
             <div className="ps-footer__copyright">
-                <p>&copy;2021 Martfury. All Rights Reserved</p>
+                <p>&copy;2023 <strong>RepuestosGo</strong></p>
                 <p>
-                    <span>We Using Safe Payment For:</span>
+                    <span>Soporte de pagos en:</span>
                     <Link href="/page/blank">
                         <a>
                             <img

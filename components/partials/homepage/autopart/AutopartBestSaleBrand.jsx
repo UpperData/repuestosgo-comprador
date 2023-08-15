@@ -5,7 +5,7 @@ const TechnologyBestSaleBrands = () => (
     <div className="ps-best-sale-brands ps-section--furniture">
         <div className="container">
             <div className="ps-section__header">
-                <h3>BEST SELLER BRANDS</h3>
+                <h3>Nuestras tiendas</h3>
             </div>
             <div className="ps-section__content">
                 <ul className="ps-image-list">

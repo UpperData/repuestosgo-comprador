@@ -24,39 +24,30 @@ const HeaderAutoPart = () => {
             url: '/shop',
         },
         {
-            text: 'Body parts',
+            text: 'Accesorios',
             url: '/shop',
         },
         {
-            text: 'Wheels & Tires',
+            text: 'Herramientas',
             url: '/shop',
         },
         {
-            text: 'Lighting',
+            text: 'Autopartes',
             url: '/shop',
         },
         {
-            text: 'Performance',
-            url: '/shop',
-        },
-        {
-            text: 'Repare part',
-            url: '/shop',
-        },
-        {
-            text: 'Tools & Garage',
+            text: 'Pintura',
             url: '/shop',
         },
     ];
     const menuAutopartCategories = [
         'Interior',
-        'Interior',
-        'Wheels & Tires',
         'Exterior',
-        'Performance',
-        'Body parts',
-        'Lighting',
-        'Accessories',
+        'Neumaticos',
+        'Accesorios',
+        'Herramientas',
+        'Autopartes',
+        'Pintura'
     ];
     // views
     const menuCategoriesView = menuAutopartCategories.map((item) => (
@@ -75,25 +66,21 @@ const HeaderAutoPart = () => {
                 <div className="container">
                     <div className="header__left">
                         <p>
-                            <strong>FREE SHIPPING</strong> for all orders over
-                            $100
+                            <strong>Servicio al cliente</strong> 24/7
                         </p>
                     </div>
                     <div className="header__right">
                         <ul className="header__top-links">
                             <li>
-                                <Link href="/vendor/store-list">
-                                    <a>Store Location</a>
-                                </Link>
-                            </li>
-                            <li>
                                 <Link href="/account/order-tracking">
-                                    <a>Tract your order</a>
+                                    <a>Encuentra tu pedido</a>
                                 </Link>
                             </li>
+                            {/* 
                             <li>
                                 <CurrencyDropdown />
                             </li>
+                            */}
                             <li>
                                 <AccountQuickLinks isLoggedIn={false} />
                                 {/*  {auth.isLoggedIn &&
@@ -113,7 +100,7 @@ const HeaderAutoPart = () => {
                         <Link href="/home/auto-part">
                             <a className="ps-logo">
                                 <img
-                                    src="/static/img/logo-autopart.png"
+                                    src="/static/img/logo/logo-b.png"
                                     alt="martfury"
                                 />
                             </a>
@@ -121,7 +108,10 @@ const HeaderAutoPart = () => {
                         <div className="menu--product-categories">
                             <div className="menu__toggle">
                                 <i className="icon-menu"></i>
-                                <span>Shop by Department</span>
+                                <span>
+                                    Catálogo 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
                             </div>
                             <div className="menu__content">
                                 <ul className="menu--dropdown">
@@ -141,8 +131,8 @@ const HeaderAutoPart = () => {
                                 </div>
                                 <div className="ps-block__right">
                                     <p>
-                                        Hotline
-                                        <strong>1-800-234-5678</strong>
+                                        Teléfono
+                                        <strong>+58 445 2415</strong>
                                     </p>
                                 </div>
                             </div>

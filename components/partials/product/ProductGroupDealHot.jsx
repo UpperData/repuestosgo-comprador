@@ -64,7 +64,7 @@ const ProductGroupDealHot = ({ collectionSlug }) => {
                     <div className="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12 ">
                         <div className="ps-block--deal-hot" data-mh="dealhot">
                             <div className="ps-block__header">
-                                <h3>Deal hot today</h3>
+                                <h3>Ofertas del día</h3>
                                 <div className="ps-block__navigation">
                                     <a
                                         className="ps-carousel__prev"
@@ -89,7 +89,7 @@ const ProductGroupDealHot = ({ collectionSlug }) => {
                         <aside
                             className="widget widget_best-sale"
                             data-mh="dealhot">
-                            <h3 className="widget-title">Top 20 Best Seller</h3>
+                            <h3 className="widget-title">Más vendidos</h3>
                             <div className="widget__content">{relatedView}</div>
                         </aside>
                     </div>
