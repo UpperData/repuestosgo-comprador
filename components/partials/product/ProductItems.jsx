@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Product from '~/components/elements/products/Product';
+//import Product from '~/components/elements/products/Product';
 import ProductWide from '~/components/elements/products/ProductWide';
 import ModuleShopSortBy from '~/components/partials/shop/modules/ModuleShopSortBy';
 import { generateTempArray } from '~/utilities/common-helpers';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
-
+import Product from '~/hooks/product';
 /*
  * NOTICE!
  * This component just dipslay product items, not fetching data.
@@ -87,9 +87,10 @@ const ProductItems = ({ products, columns = 4 }) => {
             <div className="ps-shopping__header">
                 <p>
                     <strong className="mr-2">{total}</strong>
-                    Products found
+                    Productos encontrado(s)
                 </p>
                 <div className="ps-shopping__actions">
+                    {/* 
                     <ModuleShopSortBy />
                     <div className="ps-shopping__view">
                         <p>View</p>
@@ -110,9 +111,12 @@ const ProductItems = ({ products, columns = 4 }) => {
                             </li>
                         </ul>
                     </div>
+                    */}
                 </div>
             </div>
-            <div className="ps-shopping__content">{productItemsView}</div>
+            <div className="ps-shopping__content">
+                {productItemsView}
+            </div>
         </div>
     );
 };

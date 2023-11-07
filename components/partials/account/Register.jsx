@@ -33,18 +33,18 @@ class Register extends Component {
                         <ul className="ps-tab-list">
                             <li>
                                 <Link href="/account/login">
-                                    <a>Login</a>
+                                    <a>Iniciar sesión</a>
                                 </Link>
                             </li>
                             <li className="active">
                                 <Link href="/account/register">
-                                    <a>Register</a>
+                                    <a>Registro</a>
                                 </Link>
                             </li>
                         </ul>
                         <div className="ps-tab active" id="register">
                             <div className="ps-form__content">
-                                <h5>Register An Account</h5>
+                                <h5>Crear una cuenta</h5>
                                 <div className="form-group">
                                     <Form.Item
                                         name="email"
@@ -82,13 +82,13 @@ class Register extends Component {
                                 <div className="form-group submit">
                                     <button
                                         type="submit"
-                                        className="ps-btn ps-btn--fullwidth">
-                                        Register
+                                        className="ps-btn ps-btn--fullwidth text-white">
+                                        Registrarse
                                     </button>
                                 </div>
                             </div>
                             <div className="ps-form__footer">
-                                <p>Connect with:</p>
+                                <p>Iniciar sesión con:</p>
                                 <ul className="ps-list--social">
                                     <li>
                                         <a className="facebook" href="#">
@@ -100,16 +100,18 @@ class Register extends Component {
                                             <i className="fa fa-google-plus"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a className="twitter" href="#">
-                                            <i className="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="instagram" href="#">
-                                            <i className="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
+                                    {/* 
+                                        <li>
+                                            <a className="twitter" href="#">
+                                                <i className="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="instagram" href="#">
+                                                <i className="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    */}
                                 </ul>
                             </div>
                         </div>

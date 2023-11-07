@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pagination } from 'antd';
-import Product from '~/components/elements/products/Product';
+// import Product from '~/components/elements/products/Product';
 import ProductWide from '~/components/elements/products/ProductWide';
 import ProductRepository from '~/repositories/ProductRepository';
 import ModuleShopSortBy from '~/components/partials/shop/modules/ModuleShopSortBy';
@@ -8,18 +8,19 @@ import { useRouter } from 'next/router';
 import { generateTempArray } from '~/utilities/common-helpers';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import useGetProducts from '~/hooks/useGetProducts';
+import Product, {UseProduct} from '~/hooks/product';
 
 const ShopItems = ({ columns = 4, pageSize = 12 }) => {
     const Router = useRouter();
     const { page } = Router.query;
     const { query } = Router;
     const [listView, setListView] = useState(true);
-    const [total, setTotal] = useState(0);
+
     const [classes, setClasses] = useState(
         'col-xl-4 col-lg-4 col-md-3 col-sm-6 col-6'
     );
 
-    const { productItems, loading, getProducts } = useGetProducts();
+    const { products, loading, getProducts, total } = UseProduct();
 
     function handleChangeViewMode(e) {
         e.preventDefault();
@@ -28,13 +29,6 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
 
     function handlePagination(page, pageSize) {
         Router.push(`/shop?page=${page}`);
-    }
-
-    async function getTotalRecords(params) {
-        const responseData = await ProductRepository.getTotalRecords();
-        if (responseData) {
-            setTotal(responseData);
-        }
     }
 
     function handleSetColumns() {
@@ -58,33 +52,38 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
     }
 
     useEffect(() => {
+
         let params;
-        if (query) {
-            if (query.page) {
+
+        getProducts();
+        handleSetColumns();
+
+        /*
+            if (query) {
+                if (query.page) {
+                    params = {
+                        _start: page * pageSize,
+                        _limit: pageSize,
+                    };
+                } else {
+                    params = query;
+                    params._limit = pageSize;
+                }
+            } else {
                 params = {
-                    _start: page * pageSize,
                     _limit: pageSize,
                 };
-            } else {
-                params = query;
-                params._limit = pageSize;
             }
-        } else {
-            params = {
-                _limit: pageSize,
-            };
-        }
-        getTotalRecords();
-        getProducts(params);
-        handleSetColumns();
+            getTotalRecords();
+        */
     }, [query]);
 
     // Views
     let productItemsView;
     if (!loading) {
-        if (productItems && productItems.length > 0) {
+        if (products && products.length > 0) {
             if (listView) {
-                const items = productItems.map((item) => (
+                const items = products.map((item) => (
                     <div className={classes} key={item.id}>
                         <Product product={item} />
                     </div>
@@ -95,8 +94,8 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
                     </div>
                 );
             } else {
-                productItemsView = productItems.map((item) => (
-                    <ProductWide product={item} />
+                productItemsView = products.map((item, key) => (
+                    <ProductWide key={key} product={item} />
                 ));
             }
         } else {
@@ -116,12 +115,15 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
             <div className="ps-shopping__header">
                 <p>
                     <strong className="mr-2">{total}</strong>
-                    Products found
+                    Productos encontrado(s)
                 </p>
                 <div className="ps-shopping__actions">
-                    <ModuleShopSortBy />
+                    {/* 
+                        <ModuleShopSortBy />
+                    */}
+                    {/* 
                     <div className="ps-shopping__view">
-                        <p>View</p>
+                        <p>Vista</p>
                         <ul className="ps-tab-list">
                             <li className={listView === true ? 'active' : ''}>
                                 <a
@@ -139,6 +141,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
                             </li>
                         </ul>
                     </div>
+                    */}
                 </div>
             </div>
             <div className="ps-shopping__content">{productItemsView}</div>

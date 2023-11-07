@@ -3,16 +3,18 @@ import Head from 'next/head';
 import HeaderDefault from '~/components/shared/headers/HeaderDefault';
 import HeaderMobile from '~/components/shared/headers/HeaderMobile';
 import FooterFullwidth from '~/components/shared/footers/FooterFullwidth';
+import HeaderAutoPart from '../shared/headers/HeaderAutoPart';
+import HeaderMobileAutopart from '../shared/headers/HeaderMobileAutopart';
 
 const initHeaders = (
     <>
-        <HeaderDefault />
-        <HeaderMobile />
+        <HeaderAutoPart />
+        <HeaderMobileAutopart />
     </>
 );
 const initFooters = (
     <>
-        <FooterFullwidth />
+        <FooterFullwidth classes="autopart" />
     </>
 );
 

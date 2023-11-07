@@ -18,13 +18,33 @@ import '~/scss/organic.scss';
 import '~/scss/technology.scss';
 import '~/scss/autopart.scss';
 import '~/scss/electronic.scss';
+
+import { Provider, useDispatch, useSelector } from "react-redux";
+
 import Head from 'next/head';
+import { setCategories } from '~/store/app/action';
+import { loadInitialData } from '~/functions/loadInitialData';
+
 function App({ Component, pageProps }) {
+
+    const state         = useSelector((state) => state);
+    const dispatch      = useDispatch();
+    const loaded = state.app.loaded;
+
     useEffect(() => {
-        setTimeout(function () {
-            document.getElementById('__next').classList.add('loaded');
-        }, 100);
-    });
+        // setCategories
+        // dispatch(setCategories());
+
+        loadInitialData(state, dispatch);
+
+        if(!loaded){
+            console.log('app loaded');
+            setTimeout(function () {
+                document.getElementById('__next').classList.add('loaded');
+            }, 100)
+        }
+
+    }, [loaded]);
 
     return (
         <>

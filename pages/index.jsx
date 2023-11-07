@@ -12,6 +12,7 @@ import SiteFeatures from '~/components/partials/homepage/autopart/SiteFeatures';
 import FooterSecond from '~/components/shared/footers/FooterSecond';
 import HeaderAutoPart from '~/components/shared/headers/HeaderAutoPart';
 import HeaderMobileAutopart from '~/components/shared/headers/HeaderMobileAutopart';
+import AutopartRecommendedForMe from '~/components/partials/homepage/components/RecommendedForMe';
 
 const HomeAutopartPage = () => {
     const headers = (
@@ -29,7 +30,9 @@ const HomeAutopartPage = () => {
                 <AutopartBanner />
                 <AutopartCategories />
                 <AutopartPromotions />
-                <AutopartRecommendForYou collectionSlug="autopart-recommend-products" />
+
+                <AutopartRecommendedForMe />
+                
                 <ProductGroupDealHot collectionSlug="autopart-recommend-products" />
                 <AutopartPromotions2 />
                 <AutopartBestSaleBrand />

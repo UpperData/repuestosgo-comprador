@@ -23,7 +23,7 @@
     position: relative;
     padding: 20px 20px 0;
     border: 1px solid transparent;
-    border-bottom: none;
+    // border-bottom: none;
     @extend %list-reset;
 
     .ant-rate {
@@ -190,12 +190,12 @@
 
         &.hover {
             display: block;
-            position: absolute;
+            // position: absolute;
             top: 100%;
             right: -1px;
             width: calc(100% + 2px);
-            padding: 0 20px 20px;
-            border: 1px solid silver;
+            // padding: 0 20px 20px;
+            // border: 1px solid silver;
             border-top: none;
             @include hidden;
         }

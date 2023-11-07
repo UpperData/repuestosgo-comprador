@@ -1,5 +1,35 @@
 import React from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+
+const FooterLinks = () => {
+
+    const categories = useSelector((state) => state.app.categories);
+    // console.log('categories', categories);
+
+    return (
+        <div className="ps-footer__links">
+            {categories.length > 0 && categories.map((item, key) => {
+                return (
+                    <p key={key}>
+                        <strong>
+                            {item.name}:
+                        </strong>
+                        {item.subCategories.map((subitem, subkey) => (
+                            <Link href={`/class/${item.url}/${subitem.url}`} key={subkey}>
+                                <a>{subitem.name}</a>
+                            </Link>
+                        ))}
+                    </p>
+                )
+            })}
+        </div>
+    );
+}
+
+export default FooterLinks;
+
+/*
 const Links = {
     consumerElectric: [
         {
@@ -174,58 +204,4 @@ const Links = {
         },
     ],
 };
-
-const FooterLinks = () => (
-    <div className="ps-footer__links">
-        <p>
-            <strong>Consumer Electric:</strong>
-            {Links.consumerElectric.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-        <p>
-            <strong>Clothing &amp; Apparel:</strong>
-            {Links.clothingAndApparel.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-        <p>
-            <strong>Home, Garden &amp; Kitchen:</strong>
-            {Links.gardenAndKitchen.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-        <p>
-            <strong>Health &amp; Beauty:</strong>
-            {Links.healthAndBeauty.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-        <p>
-            <strong>Jewelry &amp; Watches:</strong>
-            {Links.jewelryAndWatch.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-        <p>
-            <strong>Computer &amp; Technologies:</strong>
-            {Links.computerAndTechnology.map((item) => (
-                <Link href={item.url} key={item.text}>
-                    <a>{item.text}</a>
-                </Link>
-            ))}
-        </p>
-    </div>
-);
-
-export default FooterLinks;
+*/

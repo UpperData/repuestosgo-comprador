@@ -4,13 +4,13 @@ import Link from 'next/link';
 const FooterWidgets = () => (
     <div className="ps-footer__widgets">
         <aside className="widget widget_footer widget_contact-us">
-            <h4 className="widget-title">Contact us</h4>
+            <h4 className="widget-title">Contáctanos</h4>
             <div className="widget_content">
-                <p>Call us 24/7</p>
-                <h3>1800 97 97 69</h3>
+                <p>Soporte técnico 24/7</p>
+                <h3>+58 55533254</h3>
                 <p>
-                    502 New Design Str, Melbourne, Australia <br />
-                    <a href="mailto:contact@martfury.co">contact@martfury.co</a>
+                    Caracas, Venezuela <br />
+                    <a href="mailto:contact@martfury.co">admin@repuestosgo.com</a>
                 </p>
                 <ul className="ps-list--social">
                     <li>
@@ -24,11 +24,6 @@ const FooterWidgets = () => (
                         </a>
                     </li>
                     <li>
-                        <a className="google-plus" href="#">
-                            <i className="fa fa-google-plus"></i>
-                        </a>
-                    </li>
-                    <li>
                         <a className="instagram" href="#">
                             <i className="fa fa-instagram"></i>
                         </a>
@@ -37,57 +32,47 @@ const FooterWidgets = () => (
             </div>
         </aside>
         <aside className="widget widget_footer">
-            <h4 className="widget-title">Quick links</h4>
+            <h4 className="widget-title">Acceso rápido</h4>
             <ul className="ps-list--link">
                 <li>
                     <Link href="/page/blank">
-                        <a>Policy</a>
+                        <a>Política de privacidad</a>
                     </Link>
                 </li>
 
                 <li>
                     <Link href="/page/blank">
-                        <a>Term & Condition</a>
+                        <a>Términos y condiciones</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page/blank">
-                        <a>Shipping</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/page/blank">
-                        <a>Return</a>
+                        <a>Catálogo</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page/faqs">
-                        <a>FAQs</a>
+                        <a>Preguntas frecuentes</a>
                     </Link>
                 </li>
             </ul>
         </aside>
         <aside className="widget widget_footer">
-            <h4 className="widget-title">Company</h4>
+            <h4 className="widget-title">Compañia</h4>
             <ul className="ps-list--link">
                 <li>
                     <Link href="/page/about-us">
-                        <a>About Us</a>
+                        <a>Acerca de</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page/blank">
-                        <a>Affilate</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/page/blank">
-                        <a>Career</a>
+                        <a>Convertirse en afiliado</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/page/contact-us">
-                        <a>Contact</a>
+                        <a>Contacto</a>
                     </Link>
                 </li>
             </ul>
@@ -96,23 +81,13 @@ const FooterWidgets = () => (
             <h4 className="widget-title">Bussiness</h4>
             <ul className="ps-list--link">
                 <li>
-                    <Link href="/page/about-us">
-                        <a>Our Press</a>
-                    </Link>
-                </li>
-                <li>
                     <Link href="/account/checkout">
-                        <a>Checkout</a>
+                        <a>Carrito de compras</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/account/user-information">
-                        <a>My account</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/shop">
-                        <a>Shop</a>
+                        <a>Mi cuenta</a>
                     </Link>
                 </li>
             </ul>

@@ -4,7 +4,7 @@ import { baseUrl } from '~/repositories/Repository';
 import { formatCurrency } from '~/utilities/product-helper';
 import Link from 'next/link';
 
-function getImageURL(source, size) {
+export function getImageURL(source, size) {
     let image, imageURL;
 
     if (source) {

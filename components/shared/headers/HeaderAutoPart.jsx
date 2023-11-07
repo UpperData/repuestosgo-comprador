@@ -6,8 +6,12 @@ import AccountQuickLinks from '~/components/shared/headers/modules/AccountQuickL
 import SearchHeader from '~/components/shared/headers/modules/SearchHeader';
 import MiniCart from '~/components/shared/headers/modules/MiniCart';
 import { stickyHeader } from '~/utilities/common-helpers';
+import { useSelector } from 'react-redux';
 
 const HeaderAutoPart = () => {
+
+    const menudata = useSelector((state) => state.app.menu);
+
     useEffect(() => {
         if (process.browser) {
             window.addEventListener('scroll', stickyHeader);
@@ -50,10 +54,12 @@ const HeaderAutoPart = () => {
         'Pintura'
     ];
     // views
-    const menuCategoriesView = menuAutopartCategories.map((item) => (
-        <li key={item}>
+    const menuCategoriesView = menudata.map((item, key) => (
+        <li key={key}>
             <Link href="/shop">
-                <a>{item}</a>
+                <a>
+                    {item.name}
+                </a>
             </Link>
         </li>
     ));
@@ -72,7 +78,10 @@ const HeaderAutoPart = () => {
                     <div className="header__right">
                         <ul className="header__top-links">
                             <li>
-                                <Link href="/account/order-tracking">
+                                <Link 
+                                    //href="/account/order-tracking"
+                                    href={``}
+                                >
                                     <a>Encuentra tu pedido</a>
                                 </Link>
                             </li>
@@ -97,7 +106,7 @@ const HeaderAutoPart = () => {
             <div className="header__content">
                 <div className="container">
                     <div className="header__content-left">
-                        <Link href="/home/auto-part">
+                        <Link href="/">
                             <a className="ps-logo">
                                 <img
                                     src="/static/img/logo/logo-b.png"

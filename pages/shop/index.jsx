@@ -14,11 +14,11 @@ import Newletters from '~/components/partials/commons/Newletters';
 const ShopDefaultPage = () => {
     const breadCrumb = [
         {
-            text: 'Home',
+            text: 'Inicio',
             url: '/',
         },
         {
-            text: 'Shop Default',
+            text: 'Catálogo',
         },
     ];
 
@@ -28,29 +28,37 @@ const ShopDefaultPage = () => {
                 <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" />
                 <div className="ps-container">
                     <ShopBanner />
-                    <ShopBrands />
-                    <ShopCategories />
+                    {/* 
+                        <ShopCategories />
+                    */}
                     <div className="ps-layout--shop">
                         <div className="ps-layout__left">
                             <WidgetShopCategories />
-                            <WidgetShopBrands />
-                            <WidgetShopFilterByPriceRange />
+                            {/* 
+                                <WidgetShopBrands />
+                                <WidgetShopFilterByPriceRange />
+                            */}
                         </div>
                         <div className="ps-layout__right">
-                            <ProductGroupByCarousel
-                                collectionSlug="shop-best-seller-items"
-                                title="Best Sale Items"
-                            />
-                            <ProductGroupByCarousel
-                                collectionSlug="shop-recommend-items"
-                                title="Recommended Items"
-                            />
-                            <ShopItems columns={6} pageSize={18} />
+                            {/* 
+                                <ProductGroupByCarousel
+                                    collectionSlug="shop-best-seller-items"
+                                    title="Best Sale Items"
+                                />
+                                <ProductGroupByCarousel
+                                    collectionSlug="shop-recommend-items"
+                                    title="Recommended Items"
+                                />
+                            */}
+                            <ShopItems columns={6} pageSize={12} />
+                            <ShopBrands />
                         </div>
                     </div>
                 </div>
             </div>
-            <Newletters />
+            {/* 
+                <Newletters />
+            */}
         </PageContainer>
     );
 };

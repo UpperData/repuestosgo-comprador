@@ -45,18 +45,20 @@ class Login extends Component {
                         <ul className="ps-tab-list">
                             <li className="active">
                                 <Link href="/account/login">
-                                    <a>Login</a>
+                                    <a>Iniciar sesión</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/account/register">
-                                    <a>Register</a>
+                                    <a>Registro</a>
                                 </Link>
                             </li>
                         </ul>
                         <div className="ps-tab active" id="sign-in">
                             <div className="ps-form__content">
-                                <h5>Log In Your Account</h5>
+                                <h5>
+                                    Iniciar sesión
+                                </h5>
                                 <div className="form-group">
                                     <Form.Item
                                         name="username"
@@ -100,20 +102,20 @@ class Login extends Component {
                                             name="remember-me"
                                         />
                                         <label htmlFor="remember-me">
-                                            Rememeber me
+                                            Recuerdame
                                         </label>
                                     </div>
                                 </div>
                                 <div className="form-group submit">
                                     <button
                                         type="submit"
-                                        className="ps-btn ps-btn--fullwidth">
-                                        Login
+                                        className="ps-btn ps-btn--fullwidth text-white">
+                                        Iniciar sesión
                                     </button>
                                 </div>
                             </div>
                             <div className="ps-form__footer">
-                                <p>Connect with:</p>
+                                <p>Iniciar sesión con:</p>
                                 <ul className="ps-list--social">
                                     <li>
                                         <a
@@ -135,6 +137,7 @@ class Login extends Component {
                                             <i className="fa fa-google-plus"></i>
                                         </a>
                                     </li>
+                                    {/* 
                                     <li>
                                         <a
                                             className="twitter"
@@ -155,6 +158,7 @@ class Login extends Component {
                                             <i className="fa fa-instagram"></i>
                                         </a>
                                     </li>
+                                    */}
                                 </ul>
                             </div>
                         </div>

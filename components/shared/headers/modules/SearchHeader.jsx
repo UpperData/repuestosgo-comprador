@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { Spin } from 'antd';
 import ProductRepository from '~/repositories/ProductRepository';
 import ProductSearchResult from '~/components/elements/products/ProductSearchResult';
+import { useSelector } from 'react-redux';
 
 const exampleCategories = [
     'Todos',
@@ -34,6 +35,8 @@ const SearchHeader = () => {
     const [resultItems, setResultItems] = useState(null);
     const [loading, setLoading] = useState(false);
     const debouncedSearchTerm = useDebounce(keyword, 300);
+
+    const categories = useSelector((state) => state.app.categories);
 
     function handleClearKeyword() {
         setKeyword('');
@@ -76,9 +79,10 @@ const SearchHeader = () => {
     // Views
     let productItemsView,
         clearTextView,
-        selectOptionView,
+        categoriesOpt,
         loadingView,
         loadMoreView;
+
     if (!loading) {
         if (resultItems && resultItems.length > 0) {
             if (resultItems.length > 5) {
@@ -111,9 +115,9 @@ const SearchHeader = () => {
         );
     }
 
-    selectOptionView = exampleCategories.map((option) => (
-        <option value={option} key={option}>
-            {option}
+    categoriesOpt = categories.map((category) => (
+        <option value={category} key={category.id}>
+            {category.name}
         </option>
     ));
 
@@ -124,7 +128,10 @@ const SearchHeader = () => {
             action="/"
             onSubmit={handleSubmit}>
             <div className="ps-form__categories">
-                <select className="form-control">{selectOptionView}</select>
+                <select className="form-control">
+                    <option value="">Todos</option>
+                    {categoriesOpt}
+                </select>
             </div>
             <div className="ps-form__input">
                 <input
@@ -138,7 +145,7 @@ const SearchHeader = () => {
                 {clearTextView}
                 {loadingView}
             </div>
-            <button onClick={handleSubmit}>Search</button>
+            <button onClick={handleSubmit}>Buscar</button>
             <div
                 className={`ps-panel--search-result${
                     isSearch ? ' active ' : ''

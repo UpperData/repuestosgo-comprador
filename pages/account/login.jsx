@@ -1,33 +1,38 @@
 import React from 'react';
 
 import BreadCrumb from '~/components/elements/BreadCrumb';
-import Register from '~/components/partials/account/Register';
+import Login from '~/components/partials/account/Login';
 import PageContainer from '~/components/layouts/PageContainer';
 import FooterDefault from '~/components/shared/footers/FooterDefault';
 import Newletters from '~/components/partials/commons/Newletters';
 
-const RegisterPage = () => {
+const LoginPage = () => {
     const breadCrumb = [
         {
-            text: 'Home',
+            text: 'Inicio',
             url: '/',
         },
         {
-            text: 'Register an account',
+            text: 'Iniciar sesión',
         },
     ];
-
     return (
         <>
-            <PageContainer footer={<FooterDefault />} title="Register">
+            <PageContainer 
+                header={<></>}
+                footer={<></>} 
+                title="Login"
+            >
                 <div className="ps-page--my-account">
                     <BreadCrumb breacrumb={breadCrumb} />
-                    <Register />
+                    <Login />
                 </div>
-                <Newletters layout="container" />
+                {/* 
+                    <Newletters layout="container" />
+                */}
             </PageContainer>
         </>
     );
 };
 
-export default RegisterPage;
+export default LoginPage;

@@ -5,7 +5,7 @@ const Logo = ({ type }) => {
     let data;
     if (type === 'autopart') {
         data = {
-            url: '/home/autopart',
+            url: '/',
             img: '/static/img/logo/logo.png',
         };
     }
@@ -46,7 +46,7 @@ const Logo = ({ type }) => {
         };
     }
     return (
-        <Link href={data.url}>
+        <Link href={`/`}>
             <a className="ps-logo">
                 <img src={data.img} alt="" />
             </a>
