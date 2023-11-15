@@ -25,7 +25,9 @@ const RegisterPage = () => {
                 title="Registro"
             >
                 <div className="ps-page--my-account">
-                    <BreadCrumb breacrumb={breadCrumb} />
+                    {/* 
+                        <BreadCrumb breacrumb={breadCrumb} />
+                    */}
                     <Register />
                 </div>
                 {/* 

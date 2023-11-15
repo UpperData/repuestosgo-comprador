@@ -255,21 +255,21 @@
 
     .ps-tab-list {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
 
         li {
             display: inline-block;
             padding: 0 15px;
 
             a {
-                font-size: 30px;
-                color: $color-text;
+                font-size: 27px;
+                color: $color-2nd;
                 font-weight: 600;
             }
 
             &.active {
                 a {
-                    color: $color-heading;
+                    color: $color-1st;
                 }
             }
         }

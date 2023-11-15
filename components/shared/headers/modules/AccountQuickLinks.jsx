@@ -1,41 +1,20 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
-import { logOut } from '~/store/auth/action';
+import { useAuth } from '~/context/auth';
 
 const AccountQuickLinks = (props) => {
-    const dispatch = useDispatch();
-    const handleLogout = (e) => {
-        e.preventDefault();
-        dispatch(logOut());
-    };
+    const auth     = useAuth();
     const accountLinks = [
         {
-            text: 'Account Information',
-            url: '/account/user-information',
-        },
-        {
-            text: 'Notifications',
-            url: '/account/notifications',
-        },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-        },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-        },
-        {
-            text: 'Wishlist',
-            url: '/account/wishlist',
-        },
+            text: 'Perfil de usuario',
+            url: '/account/profile',
+        }
     ];
+
     const { isLoggedIn } = props;
+
+    const session = useSelector((state) => state.session);
 
     // View
     const linksView = accountLinks.map((item) => (
@@ -46,16 +25,25 @@ const AccountQuickLinks = (props) => {
         </li>
     ));
 
-    if (isLoggedIn === true) {
+    if (session.auth === true) {
+
+        const userEmail = session.user.account.email;
+
         return (
             <div className="ps-block--user-account">
-                <i className="icon-user"></i>
+                <span>
+                    <i className="icon-user d-none" style={{ fontSize: 16}} />
+                    <span className='ml-2'>{userEmail}</span>
+                </span>
                 <div className="ps-block__content">
                     <ul className="ps-list--arrow">
                         {linksView}
                         <li className="ps-block__footer">
-                            <a href="#" onClick={(e) => handleLogout(e)}>
-                                Logout
+                            <a 
+                                href="#" 
+                                onClick={() => auth.handleLogout()}
+                            >
+                                Cerrar sesión
                             </a>
                         </li>
                     </ul>

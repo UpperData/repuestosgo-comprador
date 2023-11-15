@@ -1,4 +1,5 @@
 import { actionTypes } from './action';
+import { HYDRATE } from "next-redux-wrapper";
 
 export const initialState = {
     currency: {
@@ -13,6 +14,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 ...{ currency: action.currency },
+            };
+        case HYDRATE:
+            return {
+                ...state,
+                ...action.payload.setting,
             };
         default:
             return state;

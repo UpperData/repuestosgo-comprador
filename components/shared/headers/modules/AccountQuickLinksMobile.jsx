@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
-import { logOut } from '../../../../store/auth/action';
+
 import { Dropdown, Menu } from 'antd';
 class AccountQuickLinks extends Component {
     constructor(props) {
@@ -10,7 +10,6 @@ class AccountQuickLinks extends Component {
 
     handleLogout = e => {
         e.preventDefault();
-        this.props.dispatch(logOut());
     };
 
     render() {

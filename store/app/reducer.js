@@ -1,4 +1,5 @@
 import { actionTypes } from './action';
+import { HYDRATE } from "next-redux-wrapper";
 
 export const initState = {
     isShowDemoPanel: false,
@@ -28,6 +29,16 @@ function reducer(state = initState, action) {
             return {
                 ...state,
                 ...{ loading: action.payload },
+            };
+        case actionTypes.APP_LOADED:
+            return {
+                ...state,
+                ...{ loading: action.payload },
+            };
+        case HYDRATE:
+            return {
+                ...state,
+                ...action.payload.app,
             };
         default:
             return state;

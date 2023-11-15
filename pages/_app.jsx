@@ -1,4 +1,9 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from "react";
+import Head from "next/head";
+import App from 'next/app';
+import Script from 'next/script'
+import Cookies from "js-cookie";
+
 import { wrapper } from '~/store/store';
 import { CookiesProvider } from 'react-cookie';
 import MasterLayout from '~/components/layouts/MasterLayout';
@@ -19,37 +24,46 @@ import '~/scss/technology.scss';
 import '~/scss/autopart.scss';
 import '~/scss/electronic.scss';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Provider, useDispatch, useSelector } from "react-redux";
-
-import Head from 'next/head';
-import { setCategories } from '~/store/app/action';
 import { loadInitialData } from '~/functions/loadInitialData';
+import { ToastContainer } from "react-toastify";
+import AuthProvider from "~/context/auth";
 
-function App({ Component, pageProps }) {
+function MyApp({ Component, ...rest }) {
 
-    const state         = useSelector((state) => state);
-    const dispatch      = useDispatch();
-    const loaded = state.app.loaded;
+    const { store, props } = wrapper.useWrappedStore(rest);
+    const { pageProps } = props;
 
+    //const state         = useSelector((state) => state);
+    //const dispatch      = useDispatch();
+    //const loaded = state.app.loaded;
+
+    
     useEffect(() => {
+        const initialStore = store.getState();
+        console.log('state', initialStore);
+        const loading = initialStore.app.loading;
+
         // setCategories
         // dispatch(setCategories());
+        // loadInitialData(state, dispatch);
+        
 
-        loadInitialData(state, dispatch);
-
-        if(!loaded){
+        if(!loading){
             console.log('app loaded');
             setTimeout(function () {
                 document.getElementById('__next').classList.add('loaded');
             }, 100)
         }
-
-    }, [loaded]);
+    }, []);
+    
 
     return (
         <>
             <Head>
-                <title>Martfury - React eCommerce Template</title>
+                <title>RepuestosGo</title>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta
                     name="viewport"
@@ -60,20 +74,33 @@ function App({ Component, pageProps }) {
                 <meta name="author" content="nouthemes" />
                 <meta
                     name="keywords"
-                    content="Martfury, React, eCommerce, Template"
+                    content="RepuestosGo"
                 />
                 <meta
                     name="description"
-                    content="Martfury - React eCommerce Template"
+                    content="RepuestosGo"
                 />
             </Head>
-            <CookiesProvider>
-                <MasterLayout>
-                    <Component {...pageProps} />
-                </MasterLayout>
-            </CookiesProvider>
+            <div>
+                <Provider store={store}>
+                    <CookiesProvider>
+                        <AuthProvider>
+                            <MasterLayout>
+                                <ToastContainer />
+                                <Component {...pageProps} />
+                            </MasterLayout>
+                        </AuthProvider>
+                    </CookiesProvider>
+                </Provider>
+            </div>
         </>
     );
 }
 
-export default wrapper.withRedux(App);
+MyApp.getInitialProps = wrapper.getInitialAppProps((store) => async (appContext) => {
+    await loadInitialData(store, appContext.ctx.req);
+    const appProps = await App.getInitialProps(appContext);
+    return { ...appProps }
+});
+
+export default MyApp;
