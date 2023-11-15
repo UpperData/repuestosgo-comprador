@@ -27,7 +27,7 @@ const AccountQuickLinks = (props) => {
 
     if (session.auth === true) {
 
-        const userEmail = session.user.account.email;
+        const userEmail = session.user.email;
 
         return (
             <div className="ps-block--user-account">

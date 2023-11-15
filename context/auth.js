@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from "next/router";
-import axios from '../services/fetch'
+import axios, { addToken, removeToken } from '../services/fetch'
 import cookie from 'js-cookie'
 import { login, logout } from "~/store/session/action";
 
@@ -23,11 +23,10 @@ const AuthProvider = ({ children }) => {
 
         console.log(token);
         cookie.set('usertoken', token);
-    
-        //console.log('datauser', user);
-        //const me = await axios.get(`/auth/me`);
-
-        await dispatch(login(user));
+        addToken(token);
+        const me = await axios.get(`/accoUNT/pROfiLE`);
+        console.log('datauser', me.data);
+        await dispatch(login(me.data.data));
     }
 
     const updateUser = async () => {
@@ -39,11 +38,8 @@ const AuthProvider = ({ children }) => {
 
     const handleLogout = async () => {
         cookie.remove('wtoken');
+        removeToken();
         await dispatch(logout());
-        
-        /*
-            removeToken();
-        */
     }
 
     return (

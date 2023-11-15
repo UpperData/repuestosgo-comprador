@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { API_BASE_URL } from '~/config/appConfig';
+import Cookie from "js-cookie"
 
 const service = axios.create({
   baseURL: API_BASE_URL,
@@ -20,6 +21,21 @@ service.interceptors.response.use((response) => {
 */
 	return Promise.reject(error);
 });
+
+if(typeof window !== "undefined"){
+    const token = Cookie.get("usertoken");
+    if(token && token !== undefined){
+        service.defaults.headers.common = {'Authorization': `Bearer ${token}`};
+    }
+}
+
+export const addToken = async (token) => {
+    service.defaults.headers.common = {'Authorization': `Bearer ${token}`};
+}
+
+export const removeToken = async () => {
+    delete service.defaults.headers.common["Authorization"];
+}
 
 
 

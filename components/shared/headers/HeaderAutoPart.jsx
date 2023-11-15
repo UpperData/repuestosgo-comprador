@@ -141,7 +141,7 @@ const HeaderAutoPart = () => {
                                 <div className="ps-block__right">
                                     <p>
                                         Teléfono
-                                        <strong>+58 445 2415</strong>
+                                        <strong>+58 412-9502391</strong>
                                     </p>
                                 </div>
                             </div>

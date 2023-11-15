@@ -86,7 +86,7 @@ function Login () {
                 if(loginData.result){
                     const token = loginData.token;
                     delete loginData.token;
-
+                    
                     auth.setUser(token, loginData);
                     toast.success('Ha iniciado sesión');
                     router.push('/');

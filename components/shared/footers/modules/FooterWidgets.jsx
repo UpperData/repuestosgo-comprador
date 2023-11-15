@@ -7,7 +7,7 @@ const FooterWidgets = () => (
             <h4 className="widget-title">Contáctanos</h4>
             <div className="widget_content">
                 <p>Soporte técnico 24/7</p>
-                <h3>+58 55533254</h3>
+                <h3>+58 412-9502391</h3>
                 <p>
                     Caracas, Venezuela <br />
                     <a href="mailto:contact@martfury.co">admin@repuestosgo.com</a>
