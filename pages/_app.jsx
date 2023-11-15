@@ -46,11 +46,6 @@ function MyApp({ Component, ...rest }) {
         console.log('state', initialStore);
         const loading = initialStore.app.loading;
 
-        // setCategories
-        // dispatch(setCategories());
-        // loadInitialData(state, dispatch);
-        
-
         if(!loading){
             console.log('app loaded');
             setTimeout(function () {
@@ -98,7 +93,10 @@ function MyApp({ Component, ...rest }) {
 }
 
 MyApp.getInitialProps = wrapper.getInitialAppProps((store) => async (appContext) => {
-    await loadInitialData(store, appContext.ctx.req);
+    if(appContext.ctx.req){
+        await loadInitialData(store, appContext.ctx.req);
+    }
+    
     const appProps = await App.getInitialProps(appContext);
     return { ...appProps }
 });
