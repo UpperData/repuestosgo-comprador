@@ -102,6 +102,7 @@ function Register(){
                 console.log(res.data);
                 
             }).catch((err) => {
+                setsending(false);
                 console.error(err);
             });
         
@@ -222,6 +223,7 @@ function Register(){
                             */}
                             <div className="form-group submit">
                                 <button
+                                    disabled={sending}
                                     type="submit"
                                     className="ps-btn ps-btn--fullwidth text-white"
                                 >
@@ -230,7 +232,7 @@ function Register(){
                             </div>
                         </div>
                         <div className="ps-form__footer d-none">
-                            
+
                             <p>Iniciar sesión con:</p>
 
                             <ul className="ps-list--social">
