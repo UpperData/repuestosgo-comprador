@@ -656,6 +656,12 @@
             border: 1px solid rgba(#000, 0.15);
             border-bottom: none;
             border-right: none;
+
+            a{
+                display: flex;
+                justify-content: center;
+                margin: auto;
+            }
         }
     }
 
