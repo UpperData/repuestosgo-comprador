@@ -80,7 +80,7 @@ const ProductDefaultPage = (props) => {
     return (
         <PageContainer
             header={headerView}
-            title={product ? product.title : 'Loading...'}>
+            title={dataProduct ? dataProduct.description : 'Loading...'}>
             <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" 
         />
             <div className="ps-page--product">
