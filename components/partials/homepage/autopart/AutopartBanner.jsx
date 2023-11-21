@@ -3,11 +3,13 @@ import Slider from 'react-slick';
 
 const AutopartBanner = () => {
     const carouselSettings = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
+        autoplay:       true,
+        autoplaySpeed:  2000,
+        dots:           false,
+        arrows:         false,
+        infinite:       true,
+        speed:          1000,
+        slidesToShow:   1,
         slidesToScroll: 1,
     };
 

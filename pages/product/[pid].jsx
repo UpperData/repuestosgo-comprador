@@ -21,29 +21,17 @@ import SellerProducts from '~/components/partials/product/SellerProducts';
 const ProductDefaultPage = (props) => {
 
     const router = useRouter();
-    const { pid } = router.query;
+    const { pid } = props;
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
 
     console.log('productData', props);
     const [dataProduct, setdataProduct] = useState(props.productData);
 
-    async function getProduct(pid) {
-        setLoading(true);
-        const responseData = await ProductRepository.getProductsById(pid);
-        if (responseData) {
-            setProduct(responseData);
-            setTimeout(
-                function () {
-                    setLoading(false);
-                }.bind(this),
-                250
-            );
-        }
-    }
-
     useEffect(() => {
-        getProduct(pid);
+        if(dataProduct !== props.productData){
+            setdataProduct(props.productData);
+        }
     }, [pid]);
 
     const breadCrumb = [
@@ -62,7 +50,7 @@ const ProductDefaultPage = (props) => {
     // Views
     let productView, headerView;
     if (!loading) {
-        if (product) {
+        if (dataProduct) {
             productView = <ProductDetailFullwidth 
                 product={product} 
                 data={dataProduct} 
@@ -116,7 +104,9 @@ const ProductDefaultPage = (props) => {
                     */}
                 </div>
             </div>
-            <Newletters />
+            {/* 
+                <Newletters />
+            */}
         </PageContainer>
     );
 };
@@ -134,6 +124,7 @@ ProductDefaultPage.getInitialProps = wrapper.getInitialPageProps((store) => asyn
     const otherArticlesByShop = await axios.get(`/invetory/puBLIshING/seven/${idShop}`);
 
     return {
+        pid,
         productData:    dataProduct,
         storeId:        dataProduct.article.storeId,
         otherArticles:  otherArticlesByShop.data.result ? otherArticlesByShop.data.data : [] 
