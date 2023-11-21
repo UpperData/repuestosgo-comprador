@@ -12,21 +12,12 @@ import HeaderDefault from '~/components/shared/headers/HeaderDefault';
 import PageContainer from '~/components/layouts/PageContainer';
 import Newletters from '~/components/partials/commons/Newletters';
 import HeaderMobileProduct from '~/components/shared/header-mobile/HeaderMobileProduct';
-import HeaderAutoPart from '~/components/shared/headers/HeaderAutoPart';
-import { wrapper } from '~/store/store';
 
-import axios from '../../services/fetch';
-import SellerProducts from '~/components/partials/product/SellerProducts';
-
-const ProductDefaultPage = (props) => {
-
+const ProductDefaultPage = () => {
     const router = useRouter();
     const { pid } = router.query;
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
-
-    console.log('productData', props);
-    const [dataProduct, setdataProduct] = useState(props.productData);
 
     async function getProduct(pid) {
         setLoading(true);
@@ -56,31 +47,24 @@ const ProductDefaultPage = (props) => {
             url: '/shop',
         },
         {
-            text: dataProduct ? dataProduct.description : 'Loading...',
+            text: product ? product.title : 'Loading...',
         },
     ];
     // Views
     let productView, headerView;
     if (!loading) {
         if (product) {
-            productView = <ProductDetailFullwidth 
-                product={product} 
-                data={dataProduct} 
-            />;
+            productView = <ProductDetailFullwidth product={product} />;
             headerView = (
                 <>
-                    {/* 
-                        <HeaderProduct product={product} />
-                    */}
-
-                    <HeaderAutoPart product={product} />
+                    <HeaderProduct product={product} />
                     <HeaderMobileProduct />
                 </>
             );
         } else {
             headerView = (
                 <>
-                    <HeaderAutoPart />
+                    <HeaderDefault />
                     <HeaderMobileProduct />
                 </>
             );
@@ -93,52 +77,26 @@ const ProductDefaultPage = (props) => {
         <PageContainer
             header={headerView}
             title={product ? product.title : 'Loading...'}>
-            <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" 
-        />
+            <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" />
             <div className="ps-page--product">
                 <div className="ps-container">
                     <div className="ps-page__container">
-                        <div className="ps-page__left">
-                            {productView}
-                        </div>
+                        <div className="ps-page__left">{productView}</div>
                         <div className="ps-page__right">
                             <ProductWidgets />
                         </div>
                     </div>
 
-                    {props.otherArticles.length > 0 &&
-                        <SellerProducts productItems={props.otherArticles} layout="fullwidth" collectionSlug="deal-of-the-day" />
-                    }
-                    
-                    {/* 
-                        <CustomerBought layout="fullwidth" collectionSlug="deal-of-the-day"/>
-                        <RelatedProduct collectionSlug="shop-recommend-items" />
-                    */}
+                    <CustomerBought
+                        layout="fullwidth"
+                        collectionSlug="deal-of-the-day"
+                    />
+                    <RelatedProduct collectionSlug="shop-recommend-items" />
                 </div>
             </div>
             <Newletters />
         </PageContainer>
     );
 };
-
-ProductDefaultPage.getInitialProps = wrapper.getInitialPageProps((store) => async ({ req, query }) => {
-    
-    const state         = store.getState();
-    const { pid }       = query;
-
-    const data          = await axios.get(`/invetory/puBLIshING/gET/${pid}`);
-
-    const dataProduct   = data.data.data;
-
-    const idShop = dataProduct.article.storeId;
-    const otherArticlesByShop = await axios.get(`/invetory/puBLIshING/seven/${idShop}`);
-
-    return {
-        productData:    dataProduct,
-        storeId:        dataProduct.article.storeId,
-        otherArticles:  otherArticlesByShop.data.result ? otherArticlesByShop.data.data : [] 
-    }
-    
-});
 
 export default ProductDefaultPage;

@@ -3,6 +3,7 @@ import PrevArrow from '../components/elements/carousel/PrevArrow';
 import React from 'react';
 
 export const carouselStandard = {
+    autoplay: true,
     dots: false,
     arrows: true,
     infinite: true,
@@ -40,6 +41,7 @@ export const carouselStandard = {
 };
 
 export const carouselInSidebar = {
+    autoplay: true,
     dots: false,
     arrows: false,
     infinite: true,
@@ -77,6 +79,7 @@ export const carouselInSidebar = {
 };
 
 export const carouselFullwidth = {
+    autoplay: true,
     dots: false,
     infinite: true,
     speed: 750,

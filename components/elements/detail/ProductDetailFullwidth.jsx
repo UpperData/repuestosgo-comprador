@@ -8,21 +8,32 @@ import ModuleProductDetailSharing from '~/components/elements/detail/modules/Mod
 import ModuleDetailActionsMobile from '~/components/elements/detail/modules/ModuleDetailActionsMobile';
 import ModuleDetailTopInformation from '~/components/elements/detail/modules/ModuleDetailTopInformation';
 
-const ProductDetailFullwidth = ({ product }) => {
+const ProductDetailFullwidth = ({ product, data }) => {
     return (
         <div className="ps-product--detail ps-product--fullwidth">
             <div className="ps-product__header">
-                <ThumbnailDefault product={product} />
+                
+                <ThumbnailDefault product={data} />
+
                 <div className="ps-product__info">
-                    <ModuleDetailTopInformation product={product} />
-                    <ModuleProductDetailDescription product={product} />
-                    <ModuleDetailShoppingActions product={product} />
-                    <ModuleProductDetailSpecification />
-                    <ModuleProductDetailSharing />
+                    <ModuleDetailTopInformation product={data} />
+                    {/* 
+                        <ModuleProductDetailDescription product={product} />
+                    */}
+                    <ModuleDetailShoppingActions product={data} />
+                    <ModuleProductDetailSpecification product={data} />
+
+                    {/*
+                        <ModuleProductDetailSharing />
+                    */}
+
                     <ModuleDetailActionsMobile product={product} />
                 </div>
             </div>
+
+            {/* 
             <DefaultDescription />
+            */}
         </div>
     );
 };

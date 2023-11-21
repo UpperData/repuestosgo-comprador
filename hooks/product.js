@@ -13,7 +13,7 @@ const Product = ({ product }) => {
         <div className="ps-product">
             <div className="ps-product__thumbnail">
                 <Link 
-                    href={''}
+                    href={`/product/${product.articleId}`}
                     //href="/product/[pid]" 
                     //as={`/product/${product.id}`}
                 >

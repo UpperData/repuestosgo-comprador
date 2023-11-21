@@ -71,7 +71,7 @@ const ModuleDetailShoppingActions = ({
         return (
             <div className="ps-product__shopping">
                 <figure>
-                    <figcaption>Quantity</figcaption>
+                    <figcaption>Cantidad</figcaption>
                     <div className="form-group--number">
                         <button
                             className="up"
@@ -95,10 +95,10 @@ const ModuleDetailShoppingActions = ({
                     className="ps-btn ps-btn--black"
                     href="#"
                     onClick={(e) => handleAddItemToCart(e)}>
-                    Add to cart
+                    Agregar al carrito
                 </a>
-                <a className="ps-btn" href="#" onClick={(e) => handleBuynow(e)}>
-                    Buy Now
+                <a className="ps-btn text-white" href="#" onClick={(e) => handleBuynow(e)}>
+                    Comprar
                 </a>
                 <div className="ps-product__actions">
                     <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
@@ -139,7 +139,7 @@ const ModuleDetailShoppingActions = ({
                         className="ps-btn ps-btn--black"
                         href="#"
                         onClick={(e) => handleAddItemToCart(e)}>
-                        Add to cart
+                        Agregar al carrito
                     </a>
                     <div className="ps-product__actions">
                         <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
@@ -150,8 +150,8 @@ const ModuleDetailShoppingActions = ({
                         </a>
                     </div>
                 </div>
-                <a className="ps-btn" href="#" onClick={(e) => handleBuynow(e)}>
-                    Buy Now
+                <a className="ps-btn text-white" href="#" onClick={(e) => handleBuynow(e)}>
+                    Comprar
                 </a>
             </div>
         );

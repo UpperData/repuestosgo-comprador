@@ -5,6 +5,7 @@ import Rating from '~/components/elements/Rating';
 const ModuleDetailTopInformation = ({ product }) => {
     // Views
     let priceView;
+    let brand = product.filter[1].brand.name;
 
     if (product.is_sale) {
         priceView = (
@@ -18,17 +19,19 @@ const ModuleDetailTopInformation = ({ product }) => {
     }
     return (
         <header>
-            <h1>{product.title}</h1>
+            <h1>{product.description}</h1>
             <div className="ps-product__meta">
                 <p>
-                    Brand:
+                    Marca:
                     <Link href="/shop">
-                        <a className="ml-2 text-capitalize">{product.vendor}</a>
+                        <a className="ml-2 text-capitalize">{brand}</a>
                     </Link>
                 </p>
                 <div className="ps-product__rating">
                     <Rating />
-                    <span>(1 review)</span>
+                    {/* 
+                        <span>(1 review)</span>
+                    */}
                 </div>
             </div>
             {priceView}
