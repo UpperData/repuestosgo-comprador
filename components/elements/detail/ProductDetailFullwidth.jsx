@@ -16,18 +16,24 @@ const ProductDetailFullwidth = ({ product, data }) => {
                 <ThumbnailDefault product={data} />
 
                 <div className="ps-product__info">
+
                     <ModuleDetailTopInformation product={data} />
+                    
                     {/* 
                         <ModuleProductDetailDescription product={product} />
                     */}
+
                     <ModuleDetailShoppingActions product={data} />
                     <ModuleProductDetailSpecification product={data} />
 
                     {/*
                         <ModuleProductDetailSharing />
                     */}
+                    
+                    {/* 
+                        <ModuleDetailActionsMobile product={product} />
+                    */}
 
-                    <ModuleDetailActionsMobile product={product} />
                 </div>
             </div>
 

@@ -3,29 +3,33 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 import ProductOnCart from '~/components/elements/products/ProductOnCart';
 import useEcomerce from '~/hooks/useEcomerce';
-import { calculateAmount } from '~/utilities/ecomerce-helpers';
+import { calculateAmount, calculateCartAmount } from '~/utilities/ecomerce-helpers';
+import useShop from '~/hooks/useShop';
 
-const MiniCart = ({ ecomerce }) => {
-    const { products, removeItem, removeItems, getProducts } = useEcomerce();
+const MiniCart = () => {
+    //const { products, removeItem, removeItems, getProducts } = useEcomerce();
+    const { getProducts, products, removeItem } = useShop();
 
     function handleRemoveItem(e, productId) {
         e.preventDefault();
-        removeItem({ id: productId }, ecomerce.cartItems, 'cart');
+        console.log('remove', productId);
+        removeItem(productId);
     }
 
     useEffect(() => {
-        getProducts(ecomerce.cartItems, 'cart');
-    }, [ecomerce]);
+        getProducts();
+    }, []);
 
     let cartItemsView;
     if (products && products.length > 0) {
-        const amount = calculateAmount(products);
+        const amount = calculateCartAmount(products);
         const productItems = products.map((item) => {
             return (
                 <ProductOnCart product={item} key={item.id}>
                     <a
                         className="ps-product__remove"
-                        onClick={(e) => handleRemoveItem(e)}>
+                        onClick={(e) => handleRemoveItem(e, item.id)}
+                    >
                         <i className="icon-cross"></i>
                     </a>
                 </ProductOnCart>
@@ -39,14 +43,16 @@ const MiniCart = ({ ecomerce }) => {
                         Sub Total:
                         <strong>${amount ? amount : 0}</strong>
                     </h3>
-                    <figure>
-                        <Link href="/account/shopping-cart">
-                            <a className="ps-btn">View Cart</a>
-                        </Link>
-                        <Link href="/account/checkout">
-                            <a className="ps-btn">Checkout</a>
-                        </Link>
-                    </figure>
+                    {/* 
+                        <figure>
+                            <Link href="/account/shopping-cart">
+                                <a className="ps-btn text-white">View Cart</a>
+                            </Link>
+                            <Link href="/account/checkout">
+                                <a className="ps-btn text-white">Checkout</a>
+                            </Link>
+                        </figure>
+                    */}
                 </div>
             </div>
         );
@@ -54,7 +60,7 @@ const MiniCart = ({ ecomerce }) => {
         cartItemsView = (
             <div className="ps-cart__content">
                 <div className="ps-cart__items">
-                    <span>No products in cart</span>
+                    <span>Vacio</span>
                 </div>
             </div>
         );
@@ -73,4 +79,4 @@ const MiniCart = ({ ecomerce }) => {
     );
 };
 
-export default connect((state) => state)(MiniCart);
+export default MiniCart;

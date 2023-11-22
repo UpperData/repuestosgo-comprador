@@ -44,6 +44,7 @@ const HeaderAutoPart = () => {
             url: '/shop',
         },
     ];
+
     const menuAutopartCategories = [
         'Interior',
         'Exterior',
@@ -53,6 +54,7 @@ const HeaderAutoPart = () => {
         'Autopartes',
         'Pintura'
     ];
+    
     // views
     const menuCategoriesView = menudata.map((item, key) => (
         <li key={key}>

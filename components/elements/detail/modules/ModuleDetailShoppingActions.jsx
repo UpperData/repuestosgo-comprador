@@ -3,57 +3,68 @@ import { connect, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { Modal } from 'antd';
 import useEcomerce from '~/hooks/useEcomerce';
+import useShop from '~/hooks/useShop';
 
 const ModuleDetailShoppingActions = ({
     ecomerce,
     product,
     extended = false,
 }) => {
+
     const [quantity, setQuantity] = useState(1);
     const Router = useRouter();
+
     const { addItem } = useEcomerce();
+    const { addItemToCart } = useShop();
+
     function handleAddItemToCart(e) {
         e.preventDefault();
-        addItem(
-            { id: product.id, quantity: quantity },
-            ecomerce.cartItems,
-            'cart'
-        );
+        addItemToCart({ 
+            id: product.articleId, 
+            quantity: quantity,
+            data: null
+        });
     }
 
     function handleBuynow(e) {
         e.preventDefault();
-        addItem(
-            { id: product.id, quantity: quantity },
-            ecomerce.cartItems,
-            'cart'
-        );
-        setTimeout(function () {
-            Router.push('/account/checkout');
-        }, 1000);
+
+        /*
+            addItem(
+                { id: product.id, quantity: quantity },
+                ecomerce.cartItems,
+                'cart'
+            );
+            setTimeout(function () {
+                Router.push('/account/checkout');
+            }, 1000);
+        */
     }
 
     const handleAddItemToCompare = (e) => {
         e.preventDefault();
-        e.preventDefault();
-        addItem({ id: product.id }, ecomerce.compareItems, 'compare');
-        const modal = Modal.success({
-            centered: true,
-            title: 'Success!',
-            content: `This product has been added to compare listing!`,
-        });
-        modal.update;
+        /*
+            addItem({ id: product.id }, ecomerce.compareItems, 'compare');
+            const modal = Modal.success({
+                centered: true,
+                title: 'Success!',
+                content: `This product has been added to compare listing!`,
+            });
+            modal.update;
+        */
     };
 
     const handleAddItemToWishlist = (e) => {
         e.preventDefault();
-        addItem({ id: product.id }, ecomerce.wishlistItems, 'wishlist');
-        const modal = Modal.success({
-            centered: true,
-            title: 'Success!',
-            content: `This item has been added to your wishlist`,
-        });
-        modal.update;
+        /*
+            addItem({ id: product.id }, ecomerce.wishlistItems, 'wishlist');
+            const modal = Modal.success({
+                centered: true,
+                title: 'Success!',
+                content: `This item has been added to your wishlist`,
+            });
+            modal.update;
+        */
     };
 
     function handleIncreaseItemQty(e) {
@@ -67,6 +78,7 @@ const ModuleDetailShoppingActions = ({
             setQuantity(quantity - 1);
         }
     }
+
     if (!extended) {
         return (
             <div className="ps-product__shopping">
@@ -97,17 +109,23 @@ const ModuleDetailShoppingActions = ({
                     onClick={(e) => handleAddItemToCart(e)}>
                     Agregar al carrito
                 </a>
-                <a className="ps-btn text-white" href="#" onClick={(e) => handleBuynow(e)}>
+                <a 
+                    className="ps-btn text-white" 
+                    href="#" 
+                    // onClick={(e) => handleBuynow(e)}
+                >
                     Comprar
                 </a>
-                <div className="ps-product__actions">
-                    <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
-                        <i className="icon-heart"></i>
-                    </a>
-                    <a href="#" onClick={(e) => handleAddItemToCompare(e)}>
-                        <i className="icon-chart-bars"></i>
-                    </a>
-                </div>
+                {/* 
+                    <div className="ps-product__actions">
+                        <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
+                            <i className="icon-heart"></i>
+                        </a>
+                        <a href="#" onClick={(e) => handleAddItemToCompare(e)}>
+                            <i className="icon-chart-bars"></i>
+                        </a>
+                    </div>
+                */}
             </div>
         );
     } else {
@@ -158,4 +176,4 @@ const ModuleDetailShoppingActions = ({
     }
 };
 
-export default connect((state) => state)(ModuleDetailShoppingActions);
+export default ModuleDetailShoppingActions;
