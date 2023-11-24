@@ -8,7 +8,7 @@ const Newsletters = ({ layout }) => (
                     <div className="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12 ">
                         <div className="ps-form__left">
                             <h3>Newsletter</h3>
-                            <p>Subcribe to get information about products and coupons</p>
+                            <p>Suscribase a nuestro boletín para recibir información de ofertas y productos en RepuestosGo</p>
                         </div>
                     </div>
                     <div className="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12 ">
@@ -19,7 +19,7 @@ const Newsletters = ({ layout }) => (
                                     type="email"
                                     placeholder="Email address"
                                 />
-                                <button className="ps-btn">Subscribe</button>
+                                <button className="ps-btn text-white">Suscribirse</button>
                             </div>
                         </div>
                     </div>

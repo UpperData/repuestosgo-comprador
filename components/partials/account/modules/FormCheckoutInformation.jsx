@@ -17,37 +17,24 @@ class FormCheckoutInformation extends Component {
             <Form
                 className="ps-form__billing-info"
                 onFinish={this.handleLoginSubmit}>
-                <h3 className="ps-form__heading">Contact information</h3>
+                <h3 className="ps-form__heading">Información de contacto</h3>
                 <div className="form-group">
                     <Form.Item
                         name="name"
                         rules={[
                             {
                                 required: false,
-                                message:
-                                    'Enter an email or mobile phone number!',
+                                message:  'Debe ingresar su correo electrónico',
                             },
                         ]}>
                         <Input
                             className="form-control"
                             type="text"
-                            placeholder="Email or phone number"
+                            placeholder="Email"
                         />
                     </Form.Item>
                 </div>
-                <div className="form-group">
-                    <div className="ps-checkbox">
-                        <input
-                            className="form-control"
-                            type="checkbox"
-                            id="keep-update"
-                        />
-                        <label htmlFor="keep-update">
-                            Keep me up to date on news and exclusive offers?
-                        </label>
-                    </div>
-                </div>
-                <h3 className="ps-form__heading">Shipping address</h3>
+                <h3 className="ps-form__heading">Dirección</h3>
                 <div className="row">
                     <div className="col-sm-6">
                         <div className="form-group">
@@ -164,7 +151,7 @@ class FormCheckoutInformation extends Component {
                             id="save-information"
                         />
                         <label htmlFor="save-information">
-                            Save this information for next time
+                            Deseo guardar esta información.
                         </label>
                     </div>
                 </div>
@@ -172,11 +159,13 @@ class FormCheckoutInformation extends Component {
                     <Link href="/account/cart">
                         <a>
                             <i className="icon-arrow-left mr-2"></i>
-                            Return to shopping cart
+                            Regresar al carrito de compras
                         </a>
                     </Link>
                     <div className="ps-block__footer">
-                        <button className="ps-btn">Continue to shipping</button>
+                        <button className="ps-btn text-white">
+                            Continuar
+                        </button>
                     </div>
                 </div>
             </Form>

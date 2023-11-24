@@ -43,16 +43,16 @@ const MiniCart = () => {
                         Sub Total:
                         <strong>${amount ? amount : 0}</strong>
                     </h3>
-                    {/* 
-                        <figure>
-                            <Link href="/account/shopping-cart">
-                                <a className="ps-btn text-white">View Cart</a>
-                            </Link>
-                            <Link href="/account/checkout">
-                                <a className="ps-btn text-white">Checkout</a>
-                            </Link>
-                        </figure>
-                    */}
+                   
+                    <figure>
+                        <Link href="/account/shopping-cart">
+                            <a className="ps-btn text-white">Ver carrito</a>
+                        </Link>
+                        <Link href="/account/checkout">
+                            <a className="ps-btn text-white">Pagar</a>
+                        </Link>
+                    </figure>
+                   
                 </div>
             </div>
         );
@@ -60,7 +60,7 @@ const MiniCart = () => {
         cartItemsView = (
             <div className="ps-cart__content">
                 <div className="ps-cart__items">
-                    <span>Vacio</span>
+                    <span>Su carrito está vacío</span>
                 </div>
             </div>
         );

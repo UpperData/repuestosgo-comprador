@@ -9,15 +9,15 @@ import Newletters from '~/components/partials/commons/Newletters';
 const CheckoutPage = () => {
     const breadCrumb = [
         {
-            text: 'Home',
+            text: 'Inicio',
             url: '/',
         },
         {
-            text: 'Shopping Cart',
+            text: 'Carrito de compras',
             url: '/account/shopping-cart',
         },
         {
-            text: 'Checkout Information',
+            text: 'Información de pago',
         },
     ];
 

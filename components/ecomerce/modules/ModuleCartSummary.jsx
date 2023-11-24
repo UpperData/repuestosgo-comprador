@@ -1,18 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { calculateAmount } from '~/utilities/ecomerce-helpers';
+import { calculateAmount, calculateCartAmount } from '~/utilities/ecomerce-helpers';
 
 const ModuleCartSummary = ({ source }) => {
     // View
     let productItemsView, amount;
     if (source && source.length > 0) {
-        amount = calculateAmount(source);
+        amount = calculateCartAmount(source);
         productItemsView = source.map((item) => (
             <li key={item.id}>
                 <span className="ps-block__estimate">
                     <Link href="/product/[pid]" as={`/product/${item.id}`}>
                         <a className="ps-product__title">
-                            {item.title}
+                            {item.data.description}
                             <br /> x {item.quantity}
                         </a>
                     </Link>

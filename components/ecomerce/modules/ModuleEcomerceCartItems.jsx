@@ -4,22 +4,22 @@ import useEcomerce from '~/hooks/useEcomerce';
 import { Result } from 'antd';
 import ProductCart from '~/components/elements/products/ProductCart';
 
-const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
+const ModuleEcomerceCartItems = ({ cartItems }) => {
     const { increaseQty, decreaseQty, removeItem } = useEcomerce();
 
     function handleRemoveItem(e, productId) {
         e.preventDefault();
-        removeItem({ id: productId }, ecomerce.cartItems, 'cart');
+        // removeItem({ id: productId }, ecomerce.cartItems, 'cart');
     }
 
     function handleIncreaseItemQty(e, productId) {
         e.preventDefault();
-        increaseQty({ id: productId }, ecomerce.cartItems);
+        // increaseQty({ id: productId }, ecomerce.cartItems);
     }
 
     function handleDecreaseItemQty(e, productId) {
         e.preventDefault();
-        decreaseQty({ id: productId }, ecomerce.cartItems);
+        // decreaseQty({ id: productId }, ecomerce.cartItems);
     }
 
     // View
@@ -31,7 +31,7 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                     <ProductCart product={item} />
                 </td>
                 <td data-label="price" className="price">
-                    ${item.price}
+                    ${item.data.price}
                 </td>
                 <td data-label="quantity">
                     <div className="form-group--number">
@@ -54,7 +54,7 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                     </div>
                 </td>
                 <td data-label="total">
-                    <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+                    <strong>${(item.data.price * item.quantity).toFixed(2)}</strong>
                 </td>
                 <td>
                     <a href="#" onClick={(e) => handleRemoveItem(e, item.id)}>
@@ -88,4 +88,4 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
     return <>{cartItemsViews}</>;
 };
 
-export default connect((state) => state)(ModuleEcomerceCartItems);
+export default ModuleEcomerceCartItems;

@@ -8,15 +8,20 @@ import useEcomerce from '~/hooks/useEcomerce';
 import ModuleEcomerceCartItems from '~/components/ecomerce/modules/ModuleEcomerceCartItems';
 import Link from 'next/link';
 import ModuleCartSummary from '~/components/ecomerce/modules/ModuleCartSummary';
+import useShop from '~/hooks/useShop';
 
 const ShoppingCartScreen = ({ ecomerce }) => {
-    const { products, getProducts } = useEcomerce();
+    // const { products, getProducts } = useEcomerce();
+    const { getProducts, products, removeItem } = useShop();
 
+    
     useEffect(() => {
-        if (ecomerce.cartItems) {
-            getProducts(ecomerce.cartItems, 'cart');
-        }
-    }, [ecomerce]);
+        /*
+            if (ecomerce.cartItems) {
+                getProducts(ecomerce.cartItems, 'cart');
+            }
+        */
+    }, []);
 
     const breadCrumb = [
         {
@@ -24,7 +29,7 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             url: '/',
         },
         {
-            text: 'Shopping Cart',
+            text: 'Carrito de compras',
         },
     ];
 
@@ -38,18 +43,19 @@ const ShoppingCartScreen = ({ ecomerce }) => {
                         <ModuleEcomerceCartItems cartItems={products} />
                         <div className="ps-section__cart-actions">
                             <Link href="/shop">
-                                <a className="ps-btn">Back to Shop</a>
+                                <a className="ps-btn text-white">Volver a la tienda</a>
                             </Link>
                         </div>
                     </div>
                     <div className="ps-section__footer">
                         <div className="row justify-space-between">
                             <div className="col-xl-8 col-lg-4 col-md-12 col-sm-12 col-12 ">
+                                {/*
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <figure>
                                             <figcaption>
-                                                Coupon Discount
+                                                Cupón de descuento
                                             </figcaption>
                                             <div className="form-group">
                                                 <input
@@ -60,18 +66,19 @@ const ShoppingCartScreen = ({ ecomerce }) => {
                                             </div>
                                             <div className="form-group">
                                                 <button className="ps-btn ps-btn--outline">
-                                                    Apply
+                                                    Aplicar
                                                 </button>
                                             </div>
                                         </figure>
                                     </div>
                                 </div>
+                                */}
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
                                 <ModuleCartSummary source={products} />
                                 <Link href="/account/checkout">
-                                    <a className="ps-btn ps-btn--fullwidth">
-                                        Proceed to checkout
+                                    <a className="ps-btn text-white ps-btn--fullwidth">
+                                        Proceder al pago
                                     </a>
                                 </Link>
                             </div>
@@ -85,13 +92,13 @@ const ShoppingCartScreen = ({ ecomerce }) => {
                     <div className="ps-section__content">
                         <div className="alert alert-info">
                             <p className="mb-0">
-                                Your cart is currently empty.
+                                Tu carrito de compras esta vacío.
                             </p>
                         </div>
 
                         <div className="ps-section__cart-actions">
                             <Link href="/shop">
-                                <a className="ps-btn">Back to Shop</a>
+                                <a className="ps-btn text-white">Volver a la tienda</a>
                             </Link>
                         </div>
                     </div>
@@ -109,7 +116,7 @@ const ShoppingCartScreen = ({ ecomerce }) => {
                     <div className="ps-section--shopping ps-shopping-cart">
                         <div className="container">
                             <div className="ps-section__header">
-                                <h1>Shopping Cart</h1>
+                                <h1>Carrito de compras</h1>
                             </div>
                             {contentView}
                         </div>
@@ -121,4 +128,4 @@ const ShoppingCartScreen = ({ ecomerce }) => {
     );
 };
 
-export default connect((state) => state)(ShoppingCartScreen);
+export default ShoppingCartScreen;
