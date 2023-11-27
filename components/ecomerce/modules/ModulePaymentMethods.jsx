@@ -27,7 +27,7 @@ const ModulePaymentMethods = () => {
                         <Radio value={'zelle'}>Zelle</Radio>
                         <Radio value={'transferencia'}>Transferencia</Radio>
                         <Radio value={'pagomovil'}>Pago Movil</Radio>
-                        <Radio value={'pagomovil'}>Banesco</Radio>
+                        <Radio value={'banesco'}>Banesco</Radio>
                     </Radio.Group>
                 </div>
                 <div className="ps-block__content">
