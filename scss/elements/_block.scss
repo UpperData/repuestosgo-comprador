@@ -3483,8 +3483,10 @@
 
 .ps-block--payment-method {
     margin-bottom: 50px;
-    padding: 20px;
-    background-color: #eaeaea;
+    padding: 30px 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 2px solid #eaeaea;
 
     .ps-block__header {
         padding-top: 10px;

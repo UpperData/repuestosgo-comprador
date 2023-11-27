@@ -7,7 +7,7 @@ const Shipping = () => {
         <div className="ps-checkout ps-section--shopping">
             <div className="container">
                 <div className="ps-section__header">
-                    <h1>Shipping Information</h1>
+                    <h1>Información de envío</h1>
                 </div>
                 <div className="ps-section__content">
                     <div className="row">
@@ -15,24 +15,24 @@ const Shipping = () => {
                             <div className="ps-block--shipping">
                                 <div className="ps-block__panel">
                                     <figure>
-                                        <small>Contact</small>
+                                        <small>Contacto</small>
                                         <p>test@gmail.com</p>
                                         <Link href="/account/checkout">
-                                            <a>Change</a>
+                                            <a>Cambiar</a>
                                         </Link>
                                     </figure>
                                     <figure>
-                                        <small>Ship to</small>
+                                        <small>Envío a</small>
                                         <p>2015 South Street, Midland, Texas</p>
                                         <Link href="/account/checkout">
-                                            <a>Change</a>
+                                            <a>Cambiar</a>
                                         </Link>
                                     </figure>
                                 </div>
-                                <h4>Shipping Method</h4>
+                                <h4>Método de envío</h4>
                                 <div className="ps-block__panel">
                                     <figure>
-                                        <small>International Shipping</small>
+                                        <small>Envío internacional</small>
                                         <strong>$20.00</strong>
                                     </figure>
                                 </div>
@@ -40,12 +40,12 @@ const Shipping = () => {
                                     <Link href="/account/checkout">
                                         <a>
                                             <i className="icon-arrow-left mr-2"></i>
-                                            Return to information
+                                            Regresar a información
                                         </a>
                                     </Link>
                                     <Link href="/account/payment">
-                                        <a className="ps-btn">
-                                            Continue to payment
+                                        <a className="ps-btn text-white">
+                                            Proceder al pago
                                         </a>
                                     </Link>
                                 </div>

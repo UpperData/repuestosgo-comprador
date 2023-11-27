@@ -6,24 +6,24 @@ const ModulePaymentShipping = () => {
         <>
             <div className="ps-block__panel">
                 <figure>
-                    <small>Contact</small>
+                    <small>Contacto</small>
                     <p>test@gmail.com</p>
                     <Link href="/account/checkout">
-                        <a>Change</a>
+                        <a>Cambiar</a>
                     </Link>
                 </figure>
                 <figure>
-                    <small>Ship to</small>
+                    <small>Enviar a</small>
                     <p>2015 South Street, Midland, Texas</p>
                     <Link href="/account/checkout">
-                        <a>Change</a>
+                        <a>Cambiar</a>
                     </Link>
                 </figure>
             </div>
-            <h4>Shipping Method</h4>
+            <h4>Método de envío</h4>
             <div className="ps-block__panel">
                 <figure>
-                    <small>International Shipping</small>
+                    <small>Envío internacional</small>
                     <strong>$20.00</strong>
                 </figure>
             </div>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Radio } from 'antd';
 import { useRouter } from 'next/router';
+import PaymentForm from '~/components/payment/form';
 
 const ModulePaymentMethods = () => {
     const Router = useRouter();
-    const [method, setMethod] = useState(1);
+    const [method, setMethod] = useState('zelle');
 
     function handleChangeMethod(e) {
         setMethod(e.target.value); //e.target.value
@@ -23,60 +24,80 @@ const ModulePaymentMethods = () => {
                     <Radio.Group
                         onChange={(e) => handleChangeMethod(e)}
                         value={method}>
-                        <Radio value={1}>Visa / Master Card</Radio>
-                        <Radio value={2}>Paypal</Radio>
+                        <Radio value={'zelle'}>Zelle</Radio>
+                        <Radio value={'transferencia'}>Transferencia</Radio>
+                        <Radio value={'pagomovil'}>Pago Movil</Radio>
+                        <Radio value={'pagomovil'}>Banesco</Radio>
                     </Radio.Group>
                 </div>
                 <div className="ps-block__content">
-                    {method === 1 ? (
+                    {method === 'zelle' && 
+                        <PaymentForm 
+                            withEmail 
+                            dataPayment={
+                                <>
+                                    <h3>
+                                        Correo zelle:
+                                    </h3>
+                                    <p>
+                                        fullshopingmg@gmail.com
+                                    </p>
+                                </>
+                            } 
+                        />
+                    }
+                    
+                    {method === 'transferencia' && 
                         <div className="ps-block__tab">
-                            <div className="form-group">
-                                <label>Card Number</label>
-                                <input type="text" className="form-control" />
-                            </div>
-                            <div className="form-group">
-                                <label>Card Holders</label>
-                                <input type="text" className="form-control" />
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-4 col-4">
-                                    <div className="form-group">
-                                        <label>Expiration Date (MM/YY)</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="01/21"
-                                        />
-                                    </div>
-                                </div>
-                                <div className=" col-sm-4 col-4">
-                                    <div className="form-group">
-                                        <label>CVV</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <button
-                                    className="ps-btn ps-btn--fullwidth"
-                                    onClick={(e) => handleSubmit(e)}>
-                                    Submit
-                                </button>
-                            </div>
+                            <PaymentForm 
+                                dataPayment={
+                                    <>
+                                        <h3>
+                                            REPUESTO GO.COM, CA:
+                                        </h3>
+                                        <p>
+                                            0134-0361-92-3611035305
+                                        </p>
+                                        <p>
+                                            J-504124117
+                                        </p>
+                                        <p>
+                                            BANESCO
+                                        </p>
+                                    </>
+                                } 
+                            />
                         </div>
-                    ) : (
+                    }
+
+                    {method === 'pagomovil' && 
                         <div className="ps-block__tab">
-                            <a
-                                className="ps-btn"
-                                href="https://www.paypal.com/"
-                                target="_blank">
-                                Process with Paypal
-                            </a>
+                            <PaymentForm 
+                                dataPayment={
+                                    <>
+                                        <h3>
+                                            PAGO MÓVIL:
+                                        </h3>
+                                        <p>
+                                            Banesco (0134)
+                                        </p>
+                                        <p>
+                                            J-504124117
+                                        </p>
+                                        <p>
+                                            0424-360-52-54
+                                        </p>
+                                    </>
+                                } 
+                            />
                         </div>
-                    )}
+                    }
+
+                    {method === 'transferencia' && 
+                        <div className="ps-block__tab">
+                            
+                        </div>
+                    }
                 </div>
             </div>
         </>

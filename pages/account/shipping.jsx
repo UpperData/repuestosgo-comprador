@@ -10,11 +10,11 @@ import Newletters from '~/components/partials/commons/Newletters';
 const ShippingPage = () => {
     const breadCrumb = [
         {
-            text: 'Home',
+            text: 'Inicio',
             url: '/',
         },
         {
-            text: 'Shopping Cart',
+            text: 'Carrito de compras',
             url: '/account/shopping-cart',
         },
         {
@@ -22,13 +22,13 @@ const ShippingPage = () => {
             url: '/account/checkout',
         },
         {
-            text: 'Shipping',
+            text: 'Envío',
         },
     ];
 
     return (
         <>
-            <PageContainer footer={<FooterDefault />} title="Shipping">
+            <PageContainer footer={<FooterDefault />} title="Envío">
                 <div className="ps-page--simple">
                     <BreadCrumb breacrumb={breadCrumb} />
                     <Shipping />

@@ -39,7 +39,7 @@ const ModulePaymentOrderSummary = ({ shop, shipping }) => {
         shippingView = (
             <figure>
                 <figcaption>
-                    <strong>Shipping Fee</strong>
+                    <strong>Costo de envío</strong>
                     <small>$20.00</small>
                 </figcaption>
             </figure>

@@ -11,7 +11,7 @@ const Payment = () => {
         <div className="ps-checkout ps-section--shopping">
             <div className="container">
                 <div className="ps-section__header">
-                    <h1>Payment</h1>
+                    <h1>Pago</h1>
                 </div>
                 <div className="ps-section__content">
                     <div className="row">
@@ -23,7 +23,7 @@ const Payment = () => {
                                     <Link href="/account/shipping">
                                         <a>
                                             <i className="icon-arrow-left mr-2"></i>
-                                            Return to shipping
+                                            Regresar a información de envío
                                         </a>
                                     </Link>
                                 </div>
@@ -31,7 +31,7 @@ const Payment = () => {
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 ">
                             <div className="ps-form__orders">
-                                <ModulePaymentOrderSummary />
+                                <ModulePaymentOrderSummary shipping={true} />
                             </div>
                         </div>
                     </div>
