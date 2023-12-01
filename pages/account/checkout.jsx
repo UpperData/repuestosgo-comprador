@@ -17,7 +17,7 @@ const CheckoutPage = () => {
             url: '/account/shopping-cart',
         },
         {
-            text: 'Información',
+            text: 'Información de pago',
         },
     ];
 

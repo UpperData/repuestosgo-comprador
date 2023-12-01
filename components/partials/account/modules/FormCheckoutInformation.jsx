@@ -3,6 +3,10 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { Form, Input } from 'antd';
 import { toast } from 'react-toastify';
+import CitySelect from '~/components/selects/city';
+import StateSelect from '~/components/selects/state';
+import MunicipioSelect from '~/components/selects/municipio';
+import ParroquiaSelect from '~/components/selects/parroquia';
 
 const FormCheckoutInformation = () => {
      
@@ -17,7 +21,11 @@ const FormCheckoutInformation = () => {
 
         address:    '',
         department: '',
+
+        state:      '',
+        municipio:  '',
         city:       '',
+        parroquia:  '',
 
         postalCode: '',
         saveInfo:   false
@@ -91,6 +99,13 @@ const FormCheckoutInformation = () => {
         });
     }
 
+    const changeData = (value, flag) => {
+        setdata((prevState) => ({
+            ...prevState,
+            [flag]: value
+        }));
+    }
+
     const changeCheck = (e, flag) => {
         const ischecked = e.target.checked;
         setdata({
@@ -98,6 +113,8 @@ const FormCheckoutInformation = () => {
             [flag]: ischecked
         });
     }
+
+    console.log(data);
 
     return (
         <div
@@ -178,35 +195,63 @@ const FormCheckoutInformation = () => {
                         }
                     </div>
                 </div>
-                <div
-                    className={(errors.department ? 'has-error' : '') + ' form-group'}
-                >
-                    <input 
-                        type="text" 
-                        className="form-control ant-input" 
-                        placeholder='Departamento'
-                        onChange={(e) => changeInputValue(e, 'department')}
-                    />
-                    {errors.department &&
-                        <p className='mb-2 text-error'>
-                            {errors.department}
-                        </p>
-                    }
+
+                <div className="row">
+                    <div className="col-sm-6">
+                        {/* estado */}
+                        <StateSelect 
+                            error={errors.state} 
+                            id='estado' 
+                            val={data.state}
+                            onChange={(val) => changeData(val, 'state')}
+                        />
+                    </div>
+                    <div className="col-sm-6">
+                        {/* ciudad */}
+                        <CitySelect 
+                            error={errors.city} 
+                            id='ciudad' 
+                            idsearch={data.state} 
+                            val={data.city}
+                            onChange={(val) => changeData(val, 'city')}
+                        />
+                    </div>
+                    <div className="col-sm-6">
+                        {/* municipio */}
+                        <MunicipioSelect 
+                            error={errors.municipio} 
+                            id='municipio' 
+                            idsearch={data.state} 
+                            val={data.municipio}
+                            onChange={(val) => changeData(val, 'municipio')}
+                        />
+                    </div>
+                    <div className="col-sm-6">
+                        {/* parroquia */}
+                        <ParroquiaSelect 
+                            error={errors.parroquia} 
+                            id='parroquia' 
+                            idsearch={data.municipio} 
+                            val={data.parroquia}
+                            onChange={(val) => changeData(val, 'parroquia')}
+                        />
+                    </div>
                 </div>
+
                 <div className="row">
                     <div className="col-sm-6">
                         <div
-                            className={(errors.city ? 'has-error' : '') + ' form-group'}
+                            className={(errors.department ? 'has-error' : '') + ' form-group'}
                         >
                             <input 
                                 type="text" 
                                 className="form-control ant-input" 
-                                placeholder='Ciudad'
-                                onChange={(e) => changeInputValue(e, 'city')}
+                                placeholder='Departamento'
+                                onChange={(e) => changeInputValue(e, 'department')}
                             />
-                            {errors.city &&
+                            {errors.department &&
                                 <p className='mb-2 text-error'>
-                                    {errors.city}
+                                    {errors.department}
                                 </p>
                             }
                         </div>

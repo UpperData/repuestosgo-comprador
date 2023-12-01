@@ -93,7 +93,7 @@ const ModulePaymentMethods = () => {
                         </div>
                     }
 
-                    {method === 'transferencia' && 
+                    {method === 'banesco' && 
                         <div className="ps-block__tab">
                             
                         </div>
