@@ -23,15 +23,15 @@ service.interceptors.response.use((response) => {
 	return Promise.reject(error);
 });
 
-if (process.env.NODE_ENV === 'development') {
-	const httpsAgent = new https.Agent({
-	  rejectUnauthorized: false,
-	});
 
-	service.defaults.httpsAgent = httpsAgent;
-	// eslint-disable-next-line no-console
-	console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
-}
+const httpsAgent = new https.Agent({
+	rejectUnauthorized: false,
+});
+
+service.defaults.httpsAgent = httpsAgent;
+// eslint-disable-next-line no-console
+console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+
 
 if(typeof window !== "undefined"){
     const token = Cookie.get("usertoken");
