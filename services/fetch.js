@@ -2,6 +2,7 @@ import axios from 'axios'
 import { API_BASE_URL } from '~/config/appConfig';
 import Cookie from "js-cookie"
 import https from 'https'
+import * as fs from 'fs'
 
 const service = axios.create({
   baseURL: API_BASE_URL,
@@ -53,7 +54,6 @@ if(typeof window !== "undefined"){
         service.defaults.headers.common = {'Authorization': `Bearer ${token}`};
     }
 }else{
-	const fs = require('fs');
 	const httpsAgent = https.Agent({
 		rejectUnauthorized: false,
 		key:  fs.readFileSync(require.resolve('../key.key'), 'ascii'),
