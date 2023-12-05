@@ -52,6 +52,17 @@ if(typeof window !== "undefined"){
     if(token && token !== undefined){
         service.defaults.headers.common = {'Authorization': `Bearer ${token}`};
     }
+}else{
+	const fs = require('fs');
+	const httpsAgent = https.Agent({
+		rejectUnauthorized: false,
+		key:  fs.readFileSync(require.resolve('../key.key'), 'ascii'),
+		cert: fs.readFileSync(require.resolve('../cer.pem'), 'ascii')   // a PEM containing ONLY the SERVER certificate
+	});
+
+	axios.defaults.httpsAgent = httpsAgent;
+	// eslint-disable-next-line no-console
+	console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
 }
 
 export const addToken = async (token) => {
