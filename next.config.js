@@ -20,4 +20,13 @@ const nextSettings = {
     },
 };
 
-module.exports = nextSettings;
+module.exports = {
+    webpack: (config, options) => {
+        config.module.rules.push({
+            test: /\.(pem|key)$/,
+            use: 'raw-loader',
+        });
+  
+        return config;
+    },
+};

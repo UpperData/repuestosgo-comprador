@@ -23,15 +23,29 @@ service.interceptors.response.use((response) => {
 	return Promise.reject(error);
 });
 
+/*else{
+	*/
+	// const cert 	= fs.readFileSync(require.resolve("./cer.pem"));
+	// const key 	= fs.readFileSync(require.resolve("./key.pem"));
+	// console.log(cer);
+	// let datacer = JSON.stringify(decodeCert(cer), null, 2);
+	// let datakey = JSON.stringify(decodeCert(key), null, 2);
 
-const httpsAgent = new https.Agent({
-	rejectUnauthorized: false,
-});
+	/*
+	const httpsAgent = new https.Agent({
+		rejectUnauthorized: false, // (NOTE: this will disable client verification)
+		cert: cert,
+		key: privateKey,
+		passphrase: "YYY"
+	});
 
-service.defaults.httpsAgent = httpsAgent;
-// eslint-disable-next-line no-console
-console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+	service.defaults.httpsAgent = httpsAgent;
+	// eslint-disable-next-line no-console
+	console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+	*/
+	
 
+//}
 
 if(typeof window !== "undefined"){
     const token = Cookie.get("usertoken");

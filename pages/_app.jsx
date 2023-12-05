@@ -31,6 +31,9 @@ import { loadInitialData } from '~/functions/loadInitialData';
 import { ToastContainer } from "react-toastify";
 import AuthProvider from "~/context/auth";
 
+import axios from '../services/fetch';
+import https from 'https';
+
 function MyApp({ Component, ...rest }) {
 
     const { store, props } = wrapper.useWrappedStore(rest);
@@ -93,6 +96,30 @@ function MyApp({ Component, ...rest }) {
 }
 
 MyApp.getInitialProps = wrapper.getInitialAppProps((store) => async (appContext) => {
+    if (process.env.NODE_ENV === 'development') {
+        
+        const httpsAgent = new https.Agent({
+          rejectUnauthorized: false,
+        });
+    
+        axios.defaults.httpsAgent = httpsAgent;
+        // eslint-disable-next-line no-console
+        console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+        
+    }else{
+
+        const fs = require('fs');
+        const httpsAgent = https.Agent({
+            key:  fs.readFileSync(require.resolve('../key.key'), 'ascii'),
+            cert: fs.readFileSync(require.resolve('../cer.pem'), 'ascii')   // a PEM containing ONLY the SERVER certificate
+        });
+
+        axios.defaults.httpsAgent = httpsAgent;
+        // eslint-disable-next-line no-console
+        console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+        
+    }
+
     if(appContext.ctx.req){
         await loadInitialData(store, appContext.ctx.req);
     }
