@@ -60,7 +60,7 @@ const MyAccountPage = () => {
                                             <div className="row">
                                                 <div className="col-lg-3">
                                                     <div className="content-profile-photo">
-                                                        
+                                                        <i className='fa fa-user color fa-5x'></i>    
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-9">
