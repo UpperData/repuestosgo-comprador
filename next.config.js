@@ -21,6 +21,7 @@ const nextSettings = {
 };
 
 module.exports = {
+    ...nextSettings,
     webpack: (config, options) => {
         config.module.rules.push({
             test: /\.(pem|key)$/,

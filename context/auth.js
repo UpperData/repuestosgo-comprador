@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
         // use the values that we are sending.
 
         <AuthContext.Provider 
-            value={{ auth: getAuth(), setUser, handleLogout, updateUser }}
+            value={{ auth: getAuth(), setUser, handleLogout, updateUser, session }}
         >
             {children}
         </AuthContext.Provider>

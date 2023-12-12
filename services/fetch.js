@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { API_BASE_URL } from '~/config/appConfig';
 import Cookie from "js-cookie"
-import https from 'https'
-import * as fs from 'fs'
+
+//import https from 'https'
+//import * as fs from 'fs'
 
 const service = axios.create({
   baseURL: API_BASE_URL,
@@ -54,15 +55,29 @@ if(typeof window !== "undefined"){
         service.defaults.headers.common = {'Authorization': `Bearer ${token}`};
     }
 }else{
-	const httpsAgent = https.Agent({
-		rejectUnauthorized: false,
-		key:  fs.readFileSync(require.resolve('../key.key'), 'ascii'),
-		cert: fs.readFileSync(require.resolve('../cer.pem'), 'ascii')   // a PEM containing ONLY the SERVER certificate
-	});
+	/*
+	if (process.env.NODE_ENV === 'development') {
+        
+        const httpsAgent = new https.Agent({
+          rejectUnauthorized: false,
+        });
+    
+        axios.defaults.httpsAgent = httpsAgent;
+        // eslint-disable-next-line no-console
+        console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+        
+    }else{
+		const httpsAgent = https.Agent({
+			rejectUnauthorized: false,
+			key:  fs.readFileSync(require.resolve('../key.key'), 'ascii'),
+			cert: fs.readFileSync(require.resolve('../cer.pem'), 'ascii')   // a PEM containing ONLY the SERVER certificate
+		});
 
-	axios.defaults.httpsAgent = httpsAgent;
-	// eslint-disable-next-line no-console
-	console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+		axios.defaults.httpsAgent = httpsAgent;
+		// eslint-disable-next-line no-console
+		console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
+	}
+	*/
 }
 
 export const addToken = async (token) => {

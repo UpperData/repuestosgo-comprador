@@ -19,13 +19,13 @@ const ModuleProductDetailSpecification = ({ product }) => {
         <p className="categories">
             <strong> Categoría:</strong>
             <Link href="/shop">
-                <a>{category[0].clase.name}</a>
+                <a>{category.clase.name}</a>
             </Link>
             <Link href="/shop">
-                <a>{category[1].category.name}</a>
+                <a>{category.category.name}</a>
             </Link>
             <Link href="/shop">
-                <a>{category[2].subCategory.name}</a>
+                <a>{category.subCategory.name}</a>
             </Link>
         </p>
         <p className="tags">

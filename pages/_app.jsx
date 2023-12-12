@@ -96,22 +96,7 @@ function MyApp({ Component, ...rest }) {
 }
 
 MyApp.getInitialProps = wrapper.getInitialAppProps((store) => async (appContext) => {
-    /*
-    if (process.env.NODE_ENV === 'development') {
-        
-        const httpsAgent = new https.Agent({
-          rejectUnauthorized: false,
-        });
-    
-        axios.defaults.httpsAgent = httpsAgent;
-        // eslint-disable-next-line no-console
-        console.log(process.env.NODE_ENV, `RejectUnauthorized is disabled.`);
-        
-    }else{
-        */
-        
-
-    //}
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
     if(appContext.ctx.req){
         await loadInitialData(store, appContext.ctx.req);
